@@ -1,83 +1,12 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const About = () => {
-  const values = [
-    {
-      icon: "fas fa-lightbulb",
-      title: "Innovation",
-      description:
-        "We embrace new technologies and methodologies to enhance educational outcomes.",
-    },
-    {
-      icon: "fas fa-hands-helping",
-      title: "Collaboration",
-      description:
-        "We believe in the power of partnerships and working together with communities.",
-    },
-    {
-      icon: "fas fa-star",
-      title: "Excellence",
-      description:
-        "We strive for the highest quality in all our programs and initiatives.",
-    },
-    {
-      icon: "fas fa-heart",
-      title: "Compassion",
-      description:
-        "We approach our work with empathy and understanding for all stakeholders.",
-    },
-    {
-      icon: "fas fa-balance-scale",
-      title: "Equity",
-      description:
-        "We ensure equal access to educational opportunities for all students.",
-    },
-    {
-      icon: "fas fa-globe",
-      title: "Global Perspective",
-      description:
-        "We incorporate international best practices while respecting local culture.",
-    },
-  ];
+  const { t } = useTranslation();
 
-  const timeline = [
-    {
-      year: "2009",
-      title: "Foundation",
-      description:
-        "Georgian Education Initiative was established with a vision to transform education in Georgia.",
-    },
-    {
-      year: "2012",
-      title: "First Major Project",
-      description:
-        "Launched our flagship Digital Literacy Program reaching 50 rural schools.",
-    },
-    {
-      year: "2015",
-      title: "National Recognition",
-      description:
-        "Received the National Education Excellence Award for innovative teaching methods.",
-    },
-    {
-      year: "2018",
-      title: "International Partnerships",
-      description:
-        "Established partnerships with leading educational institutions across Europe.",
-    },
-    {
-      year: "2021",
-      title: "Digital Transformation",
-      description:
-        "Pioneered comprehensive online learning platforms during the pandemic.",
-    },
-    {
-      year: "2024",
-      title: "Future Forward",
-      description:
-        "Expanding our reach to serve over 10,000 students across Georgia.",
-    },
-  ];
+  const values = t("about.values", { returnObjects: true });
+
+  const timeline = t("about.timeline", { returnObjects: true });
 
   return (
     <div className="min-h-screen">
@@ -86,11 +15,10 @@ const About = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-5 font-serif">
-              About Georgian Education Initiative
+              {t("about.hero.title")}
             </h1>
             <p className="text-xl leading-relaxed opacity-90 max-w-2xl mx-auto">
-              Empowering the future of Georgia through innovative education and
-              community engagement since 2009.
+              {t("about.hero.subtitle")}
             </p>
           </div>
         </div>
@@ -105,13 +33,10 @@ const About = () => {
                 <i className="fas fa-bullseye text-3xl text-white"></i>
               </div>
               <h2 className="text-3xl font-bold text-secondary mb-6 font-serif">
-                Our Mission
+                {t("about.mission.title")}
               </h2>
               <p className="text-lg leading-relaxed text-gray-text">
-                To transform education in Georgia by providing innovative
-                learning opportunities, supporting educators, and fostering a
-                culture of academic excellence that empowers students to reach
-                their full potential and become active contributors to society.
+                {t("about.mission.description")}
               </p>
             </div>
             <div className="bg-white p-12 rounded-2xl shadow-xl text-center transition-transform duration-300 hover:-translate-y-2">
@@ -119,13 +44,10 @@ const About = () => {
                 <i className="fas fa-eye text-3xl text-white"></i>
               </div>
               <h2 className="text-3xl font-bold text-secondary mb-6 font-serif">
-                Our Vision
+                {t("about.vision.title")}
               </h2>
               <p className="text-lg leading-relaxed text-gray-text">
-                To be the leading educational organization in Georgia,
-                recognized for excellence in innovative teaching methodologies,
-                comprehensive student support, and meaningful community
-                engagement that creates lasting positive impact.
+                {t("about.vision.description")}
               </p>
             </div>
           </div>
@@ -137,11 +59,10 @@ const About = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="text-center mb-20">
             <h2 className="text-4xl font-bold text-secondary mb-5 font-serif">
-              Our Journey
+              {t("about.journey.title")}
             </h2>
             <p className="text-xl text-gray-text max-w-2xl mx-auto">
-              Fifteen years of dedication to educational excellence and
-              community impact
+              {t("about.journey.subtitle")}
             </p>
           </div>
           <div className="relative max-w-4xl mx-auto">
@@ -190,10 +111,10 @@ const About = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="text-center mb-20">
             <h2 className="text-4xl font-bold text-secondary mb-5 font-serif">
-              Our Core Values
+              {t("about.values.title")}
             </h2>
             <p className="text-xl text-gray-text max-w-2xl mx-auto">
-              The principles that guide everything we do
+              {t("about.values.subtitle")}
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -222,51 +143,26 @@ const About = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="text-center mb-20">
             <h2 className="text-4xl font-bold text-secondary mb-5 font-serif">
-              Our Impact
+              {t("about.impact.title")}
             </h2>
             <p className="text-xl text-gray-text max-w-2xl mx-auto">
-              Numbers that tell the story of our commitment to education
+              {t("about.impact.subtitle")}
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10">
-            <div className="text-center p-10 bg-white rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <div className="text-4xl font-bold text-primary mb-3">15+</div>
-              <div className="text-lg font-medium text-secondary">
-                Years of Service
+            {t("about.stats", { returnObjects: true }).map((stat, index) => (
+              <div
+                key={index}
+                className="text-center p-10 bg-white rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-2"
+              >
+                <div className="text-4xl font-bold text-primary mb-3">
+                  {stat.number}
+                </div>
+                <div className="text-lg font-medium text-secondary">
+                  {stat.label}
+                </div>
               </div>
-            </div>
-            <div className="text-center p-10 bg-white rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <div className="text-4xl font-bold text-primary mb-3">500+</div>
-              <div className="text-lg font-medium text-secondary">
-                Schools Supported
-              </div>
-            </div>
-            <div className="text-center p-10 bg-white rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <div className="text-4xl font-bold text-primary mb-3">
-                10,000+
-              </div>
-              <div className="text-lg font-medium text-secondary">
-                Students Reached
-              </div>
-            </div>
-            <div className="text-center p-10 bg-white rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <div className="text-4xl font-bold text-primary mb-3">200+</div>
-              <div className="text-lg font-medium text-secondary">
-                Teachers Trained
-              </div>
-            </div>
-            <div className="text-center p-10 bg-white rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <div className="text-4xl font-bold text-primary mb-3">25+</div>
-              <div className="text-lg font-medium text-secondary">
-                Communities Served
-              </div>
-            </div>
-            <div className="text-center p-10 bg-white rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <div className="text-4xl font-bold text-primary mb-3">50+</div>
-              <div className="text-lg font-medium text-secondary">
-                Partnerships
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -276,34 +172,36 @@ const About = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold mb-5 font-serif">
-              Meet Our Team
+              {t("about.team.title")}
             </h2>
             <p className="text-xl leading-relaxed opacity-90 max-w-2xl mx-auto mb-10">
-              Our dedicated team of educators, researchers, and community
-              leaders work together to create meaningful change in Georgia's
-              educational landscape.
+              {t("about.team.subtitle")}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
               <div className="text-center">
                 <div className="text-4xl font-bold text-primary mb-3">25+</div>
-                <div className="text-lg opacity-90">Team Members</div>
+                <div className="text-lg opacity-90">
+                  {t("about.team.members")}
+                </div>
               </div>
               <div className="text-center">
                 <div className="text-4xl font-bold text-primary mb-3">15+</div>
                 <div className="text-lg opacity-90">
-                  Years Average Experience
+                  {t("about.team.experience")}
                 </div>
               </div>
               <div className="text-center">
                 <div className="text-4xl font-bold text-primary mb-3">100%</div>
-                <div className="text-lg opacity-90">Georgian Nationals</div>
+                <div className="text-lg opacity-90">
+                  {t("about.team.nationals")}
+                </div>
               </div>
             </div>
             <a
               href="/team"
               className="inline-block px-8 py-4 bg-primary text-white font-semibold rounded-lg transition-all duration-300 hover:bg-primary-dark transform hover:-translate-y-1"
             >
-              Meet Our Team
+              {t("about.team.button")}
             </a>
           </div>
         </div>

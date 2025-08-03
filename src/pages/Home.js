@@ -1,43 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
-  const featuredProjects = [
-    {
-      id: 1,
-      title: "Digital Literacy Program",
-      description:
-        "Empowering rural communities with essential digital skills and computer literacy training.",
-      image:
-        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      category: "Education Technology",
-    },
-    {
-      id: 2,
-      title: "Teacher Development Initiative",
-      description:
-        "Comprehensive training programs for educators to enhance teaching methodologies and student engagement.",
-      image:
-        "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      category: "Professional Development",
-    },
-    {
-      id: 3,
-      title: "STEM Education for Youth",
-      description:
-        "Inspiring the next generation of innovators through hands-on science, technology, engineering, and mathematics programs.",
-      image:
-        "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      category: "STEM Education",
-    },
-  ];
+  const { t } = useTranslation();
 
-  const stats = [
-    { number: "15+", label: "Years of Experience" },
-    { number: "500+", label: "Schools Supported" },
-    { number: "10,000+", label: "Students Reached" },
-    { number: "200+", label: "Teachers Trained" },
-  ];
+  const featuredProjects = t("home.projects", { returnObjects: true }).map(
+    (project, index) => ({
+      id: index + 1,
+      ...project,
+      image: [
+        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      ][index],
+    })
+  );
+
+  const stats = t("home.stats", { returnObjects: true });
 
   return (
     <div className="min-h-screen">
@@ -47,26 +27,23 @@ const Home = () => {
         <div className="max-w-6xl mx-auto px-5 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight font-serif">
-              Empowering Education in Georgia
+              {t("home.hero.title")}
             </h1>
             <p className="text-xl leading-relaxed opacity-90">
-              We are dedicated to advancing educational excellence, fostering
-              innovation, and building a brighter future for Georgia's youth
-              through comprehensive programs, research, and community
-              engagement.
+              {t("home.hero.subtitle")}
             </p>
             <div className="flex flex-wrap gap-5">
               <Link
                 to="/projects"
                 className="inline-block px-8 py-4 bg-white text-primary font-semibold rounded-lg transition-all duration-300 hover:bg-transparent hover:text-white hover:border-2 hover:border-white transform hover:-translate-y-1"
               >
-                Explore Our Projects
+                {t("home.hero.exploreProjects")}
               </Link>
               <Link
                 to="/about"
                 className="inline-block px-8 py-4 bg-transparent text-white border-2 border-white font-semibold rounded-lg transition-all duration-300 hover:bg-white hover:text-primary transform hover:-translate-y-1"
               >
-                Learn More About Us
+                {t("home.hero.learnMore")}
               </Link>
             </div>
           </div>
@@ -138,7 +115,7 @@ const Home = () => {
                     to={`/projects/${project.id}`}
                     className="text-primary font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all duration-300"
                   >
-                    Learn More <i className="fas fa-arrow-right"></i>
+                    {t("home.learnMore")} <i className="fas fa-arrow-right"></i>
                   </Link>
                 </div>
               </div>
@@ -149,7 +126,7 @@ const Home = () => {
               to="/projects"
               className="inline-block px-8 py-4 bg-transparent text-primary border-2 border-primary font-semibold rounded-lg transition-all duration-300 hover:bg-primary hover:text-white"
             >
-              View All Projects
+              {t("home.viewAllProjects")}
             </Link>
           </div>
         </div>
@@ -161,42 +138,23 @@ const Home = () => {
           <div className="text-center">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-4xl font-bold mb-8 font-serif">
-                Our Mission
+                {t('home.mission.title')}
               </h2>
               <p className="text-xl leading-relaxed opacity-90 mb-12">
-                To transform education in Georgia by providing innovative
-                learning opportunities, supporting educators, and fostering a
-                culture of academic excellence that empowers students to reach
-                their full potential.
+                {t('home.mission.description')}
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-12">
-                <div className="text-center p-8">
-                  <i className="fas fa-lightbulb text-5xl text-primary mb-5"></i>
-                  <h4 className="text-xl font-bold text-primary mb-4">
-                    Innovation
-                  </h4>
-                  <p className="text-gray-300 leading-relaxed">
-                    Embracing new technologies and methodologies
-                  </p>
-                </div>
-                <div className="text-center p-8">
-                  <i className="fas fa-hands-helping text-5xl text-primary mb-5"></i>
-                  <h4 className="text-xl font-bold text-primary mb-4">
-                    Collaboration
-                  </h4>
-                  <p className="text-gray-300 leading-relaxed">
-                    Working together with communities and partners
-                  </p>
-                </div>
-                <div className="text-center p-8">
-                  <i className="fas fa-star text-5xl text-primary mb-5"></i>
-                  <h4 className="text-xl font-bold text-primary mb-4">
-                    Excellence
-                  </h4>
-                  <p className="text-gray-300 leading-relaxed">
-                    Striving for the highest quality in everything we do
-                  </p>
-                </div>
+                {t('home.mission.values', { returnObjects: true }).map((value, index) => (
+                  <div key={index} className="text-center p-8">
+                    <i className={`${['fas fa-lightbulb', 'fas fa-hands-helping', 'fas fa-star'][index]} text-5xl text-primary mb-5`}></i>
+                    <h4 className="text-xl font-bold text-primary mb-4">
+                      {value.title}
+                    </h4>
+                    <p className="text-gray-300 leading-relaxed">
+                      {value.description}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -208,18 +166,17 @@ const Home = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold text-secondary mb-5 font-serif">
-              Join Us in Building a Better Future
+              {t('home.cta.title')}
             </h2>
             <p className="text-xl text-gray-text mb-10">
-              Whether you're an educator, student, or community member, there
-              are many ways to get involved with our mission.
+              {t('home.cta.description')}
             </p>
             <div className="flex flex-wrap gap-5 justify-center">
               <Link
                 to="/contact"
                 className="inline-block px-8 py-4 bg-primary text-white font-semibold rounded-lg transition-all duration-300 hover:bg-primary-dark transform hover:-translate-y-1"
               >
-                Get Involved
+                {t('home.cta.button')}
               </Link>
               <Link
                 to="/trainings"

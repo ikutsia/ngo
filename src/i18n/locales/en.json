@@ -1,0 +1,233 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About Us",
+    "projects": "Projects",
+    "team": "Our Team",
+    "trainings": "Trainings",
+    "publications": "Publications",
+    "news": "News",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "header": {
+    "title": "Georgian Education Initiative",
+    "subtitle": "Empowering Education in Georgia"
+  },
+  "home": {
+    "hero": {
+      "title": "Empowering Education in Georgia",
+      "subtitle": "We are dedicated to advancing educational excellence, fostering innovation, and building a brighter future for Georgia's youth through comprehensive programs, research, and community engagement.",
+      "exploreProjects": "Explore Our Projects",
+      "learnMore": "Learn More About Us"
+    },
+    "stats": [
+      { "number": "15+", "label": "Years of Experience" },
+      { "number": "500+", "label": "Schools Supported" },
+      { "number": "10,000+", "label": "Students Reached" },
+      { "number": "200+", "label": "Teachers Trained" }
+    ],
+    "featuredProjects": {
+      "title": "Featured Projects",
+      "subtitle": "Discover our innovative initiatives that are transforming education across Georgia"
+    },
+    "projects": [
+      {
+        "title": "Digital Literacy Program",
+        "description": "Empowering rural communities with essential digital skills and computer literacy training.",
+        "category": "Education Technology"
+      },
+      {
+        "title": "Teacher Development Initiative",
+        "description": "Comprehensive training programs for educators to enhance teaching methodologies and student engagement.",
+        "category": "Professional Development"
+      },
+      {
+        "title": "STEM Education for Youth",
+        "description": "Inspiring the next generation of innovators through hands-on science, technology, engineering, and mathematics programs.",
+        "category": "STEM Education"
+      }
+    ],
+    "learnMore": "Learn More",
+    "viewAllProjects": "View All Projects",
+    "mission": {
+      "title": "Our Mission",
+      "description": "To transform education in Georgia by providing innovative learning opportunities, supporting educators, and fostering a culture of academic excellence that empowers students to reach their full potential.",
+      "values": [
+        {
+          "title": "Innovation",
+          "description": "Embracing new technologies and methodologies"
+        },
+        {
+          "title": "Collaboration",
+          "description": "Working together with communities and partners"
+        },
+        {
+          "title": "Excellence",
+          "description": "Striving for the highest quality in everything we do"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Join Us in Building a Better Future",
+      "description": "Whether you're an educator, student, or community member, there are many ways to get involved with our mission.",
+      "button": "Get Involved"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "About Georgian Education Initiative",
+      "subtitle": "Empowering the future of Georgia through innovative education and community engagement since 2009."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "To transform education in Georgia by providing innovative learning opportunities, supporting educators, and fostering a culture of academic excellence that empowers students to reach their full potential and become active contributors to society."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "To be the leading educational organization in Georgia, recognized for excellence in innovative teaching methodologies, comprehensive student support, and meaningful community engagement that creates lasting positive impact."
+    },
+    "journey": {
+      "title": "Our Journey",
+      "subtitle": "Fifteen years of dedication to educational excellence and community impact"
+    },
+    "values": {
+      "title": "Our Core Values",
+      "subtitle": "The principles that guide everything we do"
+    },
+    "impact": {
+      "title": "Our Impact",
+      "subtitle": "Numbers that tell the story of our commitment to education"
+    },
+    "team": {
+      "title": "Meet Our Team",
+      "subtitle": "Our dedicated team of educators, researchers, and community leaders work together to create meaningful change in Georgia's educational landscape.",
+      "members": "Team Members",
+      "experience": "Years Average Experience",
+      "nationals": "Georgian Nationals",
+      "button": "Meet Our Team"
+    },
+    "timeline": [
+      {
+        "year": "2009",
+        "title": "Foundation",
+        "description": "Georgian Education Initiative was established with a vision to transform education in Georgia."
+      },
+      {
+        "year": "2012",
+        "title": "First Major Project",
+        "description": "Launched our flagship Digital Literacy Program reaching 50 rural schools."
+      },
+      {
+        "year": "2015",
+        "title": "National Recognition",
+        "description": "Received the National Education Excellence Award for innovative teaching methods."
+      },
+      {
+        "year": "2018",
+        "title": "International Partnerships",
+        "description": "Established partnerships with leading educational institutions across Europe."
+      },
+      {
+        "year": "2021",
+        "title": "Digital Transformation",
+        "description": "Pioneered comprehensive online learning platforms during the pandemic."
+      },
+      {
+        "year": "2024",
+        "title": "Future Forward",
+        "description": "Expanding our reach to serve over 10,000 students across Georgia."
+      }
+    ],
+    "values": [
+      {
+        "icon": "fas fa-lightbulb",
+        "title": "Innovation",
+        "description": "We embrace new technologies and methodologies to enhance educational outcomes."
+      },
+      {
+        "icon": "fas fa-hands-helping",
+        "title": "Collaboration",
+        "description": "We believe in the power of partnerships and working together with communities."
+      },
+      {
+        "icon": "fas fa-star",
+        "title": "Excellence",
+        "description": "We strive for the highest quality in all our programs and initiatives."
+      },
+      {
+        "icon": "fas fa-heart",
+        "title": "Compassion",
+        "description": "We approach our work with empathy and understanding for all stakeholders."
+      },
+      {
+        "icon": "fas fa-balance-scale",
+        "title": "Equity",
+        "description": "We ensure equal access to educational opportunities for all students."
+      },
+      {
+        "icon": "fas fa-globe",
+        "title": "Global Perspective",
+        "description": "We incorporate international best practices while respecting local culture."
+      }
+    ],
+    "stats": [
+      {
+        "number": "15+",
+        "label": "Years of Service"
+      },
+      {
+        "number": "500+",
+        "label": "Schools Supported"
+      },
+      {
+        "number": "10,000+",
+        "label": "Students Reached"
+      },
+      {
+        "number": "200+",
+        "label": "Teachers Trained"
+      },
+      {
+        "number": "25+",
+        "label": "Communities Served"
+      },
+      {
+        "number": "50+",
+        "label": "Partnerships"
+      }
+    ]
+  },
+  "footer": {
+    "title": "Georgian Education Initiative",
+    "description": "Empowering education and fostering academic excellence across Georgia through innovative programs, research, and community engagement.",
+    "quickLinks": "Quick Links",
+    "resources": "Resources",
+    "contactInfo": "Contact Information",
+    "links": {
+      "about": "About Us",
+      "projects": "Our Projects",
+      "team": "Our Team",
+      "trainings": "Trainings",
+      "publications": "Publications",
+      "news": "Latest News",
+      "blog": "Blog",
+      "researchPapers": "Research Papers",
+      "trainingMaterials": "Training Materials",
+      "getInvolved": "Get Involved"
+    },
+    "contact": {
+      "address": "123 Education Street",
+      "city": "Tbilisi, Georgia 0101",
+      "phone": "+995 32 123 4567",
+      "email": "info@georgianeducation.ge",
+      "hours": "Mon-Fri: 9:00 AM - 6:00 PM"
+    },
+    "copyright": "© 2024 Georgian Education Initiative. All rights reserved.",
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "accessibility": "Accessibility"
+    }
+  }
+}
