@@ -1,86 +1,36 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const Team = () => {
-  const teamMembers = [
-    {
-      id: 1,
-      name: "Dr. Nino Kalandadze",
-      position: "Executive Director",
-      image:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      bio: "Leading our organization with 15+ years of experience in educational policy and program development.",
-      email: "nino.kalandadze@georgianeducation.ge",
-      linkedin: "#",
-    },
-    {
-      id: 2,
-      name: "Giorgi Tsiklauri",
-      position: "Program Director",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      bio: "Overseeing all educational programs and ensuring quality implementation across Georgia.",
-      email: "giorgi.tsiklauri@georgianeducation.ge",
-      linkedin: "#",
-    },
-    {
-      id: 3,
-      name: "Mariam Chkheidze",
-      position: "Research Coordinator",
-      image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      bio: "Conducting research on educational outcomes and developing evidence-based programs.",
-      email: "mariam.chkheidze@georgianeducation.ge",
-      linkedin: "#",
-    },
-    {
-      id: 4,
-      name: "Levan Beridze",
-      position: "Technology Director",
-      image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      bio: "Leading our digital transformation initiatives and technology integration programs.",
-      email: "levan.beridze@georgianeducation.ge",
-      linkedin: "#",
-    },
-    {
-      id: 5,
-      name: "Ana Kapanadze",
-      position: "Community Outreach Manager",
-      image:
-        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      bio: "Building partnerships with communities and managing stakeholder relationships.",
-      email: "ana.kapanadze@georgianeducation.ge",
-      linkedin: "#",
-    },
-    {
-      id: 6,
-      name: "David Mchedlishvili",
-      position: "Training Coordinator",
-      image:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      bio: "Developing and delivering professional development programs for educators.",
-      email: "david.mchedlishvili@georgianeducation.ge",
-      linkedin: "#",
-    },
-  ];
+  const { t } = useTranslation();
 
-  const advisors = [
-    {
-      name: "Prof. Tamar Kiknadze",
-      position: "Education Policy Advisor",
-      institution: "Tbilisi State University",
-    },
-    {
-      name: "Dr. Zurab Kipshidze",
-      position: "Technology Advisor",
-      institution: "Georgian Technical University",
-    },
-    {
-      name: "Nino Gvazava",
-      position: "Community Development Advisor",
-      institution: "Civil Society Institute",
-    },
-  ];
+  const teamMembers = t("team.members", { returnObjects: true }).map(
+    (member, index) => ({
+      id: index + 1,
+      ...member,
+      image: [
+        "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      ][index],
+      email: [
+        "nino.kalandadze@georgianeducation.ge",
+        "giorgi.tsiklauri@georgianeducation.ge",
+        "mariam.chkheidze@georgianeducation.ge",
+        "levan.beridze@georgianeducation.ge",
+        "ana.kapanadze@georgianeducation.ge",
+        "david.mchedlishvili@georgianeducation.ge",
+      ][index],
+      linkedin: "#",
+    })
+  );
+
+  const advisors = t("team.advisory.advisors", { returnObjects: true });
+
+  const stats = t("team.stats", { returnObjects: true });
 
   return (
     <div className="min-h-screen">
@@ -89,11 +39,10 @@ const Team = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-5 font-serif">
-              Our Team
+              {t("team.hero.title")}
             </h1>
             <p className="text-xl leading-relaxed opacity-90 max-w-2xl mx-auto">
-              Meet the dedicated professionals who are driving educational
-              innovation across Georgia
+              {t("team.hero.subtitle")}
             </p>
           </div>
         </div>
@@ -104,11 +53,10 @@ const Team = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="text-center mb-20">
             <h2 className="text-4xl font-bold text-secondary mb-5 font-serif">
-              Leadership Team
+              {t("team.leadership.title")}
             </h2>
             <p className="text-xl text-gray-text max-w-2xl mx-auto">
-              Our experienced leaders guide our mission and vision for
-              educational excellence
+              {t("team.leadership.subtitle")}
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -162,11 +110,10 @@ const Team = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="text-center mb-20">
             <h2 className="text-4xl font-bold text-secondary mb-5 font-serif">
-              Advisory Board
+              {t("team.advisory.title")}
             </h2>
             <p className="text-xl text-gray-text max-w-2xl mx-auto">
-              Expert advisors who provide strategic guidance and support our
-              mission
+              {t("team.advisory.subtitle")}
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -197,30 +144,19 @@ const Team = () => {
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-5">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
-            <div className="text-center p-10 bg-white rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <div className="text-4xl font-bold text-primary mb-3">25+</div>
-              <div className="text-lg font-medium text-secondary">
-                Team Members
+            {stats.map((stat, index) => (
+              <div
+                key={index}
+                className="text-center p-10 bg-white rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-2"
+              >
+                <div className="text-4xl font-bold text-primary mb-3">
+                  {stat.number}
+                </div>
+                <div className="text-lg font-medium text-secondary">
+                  {stat.label}
+                </div>
               </div>
-            </div>
-            <div className="text-center p-10 bg-white rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <div className="text-4xl font-bold text-primary mb-3">15+</div>
-              <div className="text-lg font-medium text-secondary">
-                Years Average Experience
-              </div>
-            </div>
-            <div className="text-center p-10 bg-white rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <div className="text-4xl font-bold text-primary mb-3">100%</div>
-              <div className="text-lg font-medium text-secondary">
-                Georgian Nationals
-              </div>
-            </div>
-            <div className="text-center p-10 bg-white rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <div className="text-4xl font-bold text-primary mb-3">80%</div>
-              <div className="text-lg font-medium text-secondary">
-                Advanced Degrees
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -230,42 +166,42 @@ const Team = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold mb-5 font-serif">
-              Join Our Team
+              {t("team.joinTeam.title")}
             </h2>
             <p className="text-xl leading-relaxed opacity-90 max-w-2xl mx-auto mb-12">
-              We're always looking for passionate individuals who share our
-              commitment to educational excellence. Explore opportunities to
-              make a difference in Georgia's education system.
+              {t("team.joinTeam.subtitle")}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
               <div className="p-8 bg-white bg-opacity-10 rounded-2xl backdrop-blur-sm border border-white border-opacity-20">
                 <i className="fas fa-briefcase text-4xl text-white mb-6"></i>
                 <h3 className="text-xl font-bold text-white mb-4">
-                  Career Opportunities
+                  {t("team.joinTeam.career.title")}
                 </h3>
                 <p className="text-white text-opacity-80 leading-relaxed">
-                  View current job openings and apply to join our team
+                  {t("team.joinTeam.career.description")}
                 </p>
               </div>
               <div className="p-8 bg-white bg-opacity-10 rounded-2xl backdrop-blur-sm border border-white border-opacity-20">
                 <i className="fas fa-hands-helping text-4xl text-white mb-6"></i>
-                <h3 className="text-xl font-bold text-white mb-4">Volunteer</h3>
+                <h3 className="text-xl font-bold text-white mb-4">
+                  {t("team.joinTeam.volunteer.title")}
+                </h3>
                 <p className="text-white text-opacity-80 leading-relaxed">
-                  Share your skills and time with our educational programs
+                  {t("team.joinTeam.volunteer.description")}
                 </p>
               </div>
               <div className="p-8 bg-white bg-opacity-10 rounded-2xl backdrop-blur-sm border border-white border-opacity-20">
                 <i className="fas fa-graduation-cap text-4xl text-white mb-6"></i>
                 <h3 className="text-xl font-bold text-white mb-4">
-                  Internships
+                  {t("team.joinTeam.internships.title")}
                 </h3>
                 <p className="text-white text-opacity-80 leading-relaxed">
-                  Gain valuable experience through our internship programs
+                  {t("team.joinTeam.internships.description")}
                 </p>
               </div>
             </div>
             <button className="inline-block px-8 py-4 bg-white text-primary font-semibold rounded-lg transition-all duration-300 hover:bg-transparent hover:text-white hover:border-2 hover:border-white transform hover:-translate-y-1">
-              View Opportunities
+              {t("team.joinTeam.viewOpportunities")}
             </button>
           </div>
         </div>

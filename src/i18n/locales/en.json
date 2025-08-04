@@ -198,6 +198,690 @@
       }
     ]
   },
+  "projects": {
+    "hero": {
+      "title": "Our Projects",
+      "subtitle": "Discover our innovative educational initiatives that are transforming learning across Georgia"
+    },
+    "categories": {
+      "all": "All Projects",
+      "digital-literacy": "Digital Literacy",
+      "teacher-development": "Teacher Development",
+      "stem-education": "STEM Education",
+      "rural-education": "Rural Education",
+      "special-needs": "Special Needs"
+    },
+    "projectList": [
+      {
+        "title": "Digital Literacy Program",
+        "description": "Comprehensive digital skills training for students and teachers in rural communities.",
+        "status": "Active",
+        "duration": "2022-2025",
+        "participants": "2,500+",
+        "location": "Rural Georgia"
+      },
+      {
+        "title": "Teacher Development Initiative",
+        "description": "Professional development programs to enhance teaching methodologies and student engagement.",
+        "status": "Active",
+        "duration": "2021-2024",
+        "participants": "200+",
+        "location": "Nationwide"
+      },
+      {
+        "title": "STEM Education for Youth",
+        "description": "Hands-on science, technology, engineering, and mathematics programs for students.",
+        "status": "Active",
+        "duration": "2023-2026",
+        "participants": "1,800+",
+        "location": "Tbilisi & Regions"
+      },
+      {
+        "title": "Rural School Connectivity",
+        "description": "Providing internet access and technology infrastructure to remote schools.",
+        "status": "Completed",
+        "duration": "2020-2023",
+        "participants": "150+",
+        "location": "Mountain Regions"
+      },
+      {
+        "title": "Inclusive Education Program",
+        "description": "Supporting students with special needs through specialized resources and training.",
+        "status": "Active",
+        "duration": "2022-2025",
+        "participants": "500+",
+        "location": "Nationwide"
+      },
+      {
+        "title": "Coding Bootcamp for Teens",
+        "description": "Intensive programming courses to prepare students for tech careers.",
+        "status": "Active",
+        "duration": "2024-2025",
+        "participants": "300+",
+        "location": "Tbilisi"
+      }
+    ],
+    "learnMore": "Learn More",
+    "participants": "Participants",
+    "impact": {
+      "title": "Project Impact",
+      "subtitle": "Our projects have made a significant difference in communities across Georgia",
+      "stats": [
+        {
+          "number": "25+",
+          "label": "Active Projects"
+        },
+        {
+          "number": "500+",
+          "label": "Schools Reached"
+        },
+        {
+          "number": "10,000+",
+          "label": "Students Impacted"
+        },
+        {
+          "number": "200+",
+          "label": "Teachers Trained"
+        }
+      ]
+    },
+    "getInvolved": {
+      "title": "Get Involved",
+      "subtitle": "Join us in making a difference in education across Georgia. There are many ways to support our projects.",
+      "volunteer": {
+        "title": "Volunteer",
+        "description": "Share your skills and time with our educational programs"
+      },
+      "donate": {
+        "title": "Donate",
+        "description": "Support our projects with financial contributions"
+      },
+      "partner": {
+        "title": "Partner",
+        "description": "Collaborate with us on educational initiatives"
+      },
+      "contactUs": "Contact Us"
+    }
+  },
+  "team": {
+    "hero": {
+      "title": "Our Team",
+      "subtitle": "Meet the dedicated professionals who are driving educational innovation across Georgia"
+    },
+    "leadership": {
+      "title": "Leadership Team",
+      "subtitle": "Our experienced leaders guide our mission and vision for educational excellence"
+    },
+    "members": [
+      {
+        "name": "Dr. Nino Kalandadze",
+        "position": "Executive Director",
+        "bio": "Leading our organization with 15+ years of experience in educational policy and program development."
+      },
+      {
+        "name": "Giorgi Tsiklauri",
+        "position": "Program Director",
+        "bio": "Overseeing all educational programs and ensuring quality implementation across Georgia."
+      },
+      {
+        "name": "Mariam Chkheidze",
+        "position": "Research Coordinator",
+        "bio": "Conducting research on educational outcomes and developing evidence-based programs."
+      },
+      {
+        "name": "Levan Beridze",
+        "position": "Technology Director",
+        "bio": "Leading our digital transformation initiatives and technology integration programs."
+      },
+      {
+        "name": "Ana Kapanadze",
+        "position": "Community Outreach Manager",
+        "bio": "Building partnerships with communities and managing stakeholder relationships."
+      },
+      {
+        "name": "David Mchedlishvili",
+        "position": "Training Coordinator",
+        "bio": "Developing and delivering professional development programs for educators."
+      }
+    ],
+    "advisory": {
+      "title": "Advisory Board",
+      "subtitle": "Expert advisors who provide strategic guidance and support our mission",
+      "advisors": [
+        {
+          "name": "Prof. Tamar Kiknadze",
+          "position": "Education Policy Advisor",
+          "institution": "Tbilisi State University"
+        },
+        {
+          "name": "Dr. Zurab Kipshidze",
+          "position": "Technology Advisor",
+          "institution": "Georgian Technical University"
+        },
+        {
+          "name": "Nino Gvazava",
+          "position": "Community Development Advisor",
+          "institution": "Civil Society Institute"
+        }
+      ]
+    },
+    "stats": [
+      {
+        "number": "25+",
+        "label": "Team Members"
+      },
+      {
+        "number": "15+",
+        "label": "Years Average Experience"
+      },
+      {
+        "number": "100%",
+        "label": "Georgian Nationals"
+      },
+      {
+        "number": "80%",
+        "label": "Advanced Degrees"
+      }
+    ],
+    "joinTeam": {
+      "title": "Join Our Team",
+      "subtitle": "We're always looking for passionate individuals who share our commitment to educational excellence. Explore opportunities to make a difference in Georgia's education system.",
+      "career": {
+        "title": "Career Opportunities",
+        "description": "View current job openings and apply to join our team"
+      },
+      "volunteer": {
+        "title": "Volunteer",
+        "description": "Share your skills and time with our educational programs"
+      },
+      "internships": {
+        "title": "Internships",
+        "description": "Gain valuable experience through our internship programs"
+      },
+      "viewOpportunities": "View Opportunities"
+    }
+  },
+  "trainings": {
+    "hero": {
+      "title": "Professional Development Trainings",
+      "subtitle": "Enhance your teaching skills and advance your career with our comprehensive training programs"
+    },
+    "categories": [
+      {
+        "id": "all",
+        "name": "All Trainings"
+      },
+      {
+        "id": "teachers",
+        "name": "Teacher Development"
+      },
+      {
+        "id": "technology",
+        "name": "Technology Integration"
+      },
+      {
+        "id": "leadership",
+        "name": "Educational Leadership"
+      },
+      {
+        "id": "special-needs",
+        "name": "Special Education"
+      }
+    ],
+    "trainingsList": [
+      {
+        "id": 1,
+        "title": "Modern Teaching Methodologies",
+        "category": "teachers",
+        "description": "Learn innovative teaching strategies and classroom management techniques for the 21st century.",
+        "duration": "3 Days",
+        "level": "Intermediate",
+        "location": "Tbilisi",
+        "startDate": "March 15, 2024",
+        "price": "Free"
+      },
+      {
+        "id": 2,
+        "title": "Digital Tools for Education",
+        "category": "technology",
+        "description": "Master digital tools and platforms to enhance student engagement and learning outcomes.",
+        "duration": "2 Days",
+        "level": "Beginner",
+        "location": "Online",
+        "startDate": "March 20, 2024",
+        "price": "Free"
+      },
+      {
+        "id": 3,
+        "title": "School Leadership & Management",
+        "category": "leadership",
+        "description": "Develop leadership skills for educational administrators and school principals.",
+        "duration": "5 Days",
+        "level": "Advanced",
+        "location": "Tbilisi",
+        "startDate": "April 5, 2024",
+        "price": "Free"
+      },
+      {
+        "id": 4,
+        "title": "Inclusive Education Practices",
+        "category": "special-needs",
+        "description": "Learn strategies for creating inclusive classrooms that support all students.",
+        "duration": "2 Days",
+        "level": "Intermediate",
+        "location": "Batumi",
+        "startDate": "April 10, 2024",
+        "price": "Free"
+      },
+      {
+        "id": 5,
+        "title": "STEM Education Fundamentals",
+        "category": "teachers",
+        "description": "Introduction to Science, Technology, Engineering, and Mathematics teaching methods.",
+        "duration": "3 Days",
+        "level": "Beginner",
+        "location": "Kutaisi",
+        "startDate": "April 15, 2024",
+        "price": "Free"
+      },
+      {
+        "id": 6,
+        "title": "Online Learning Platforms",
+        "category": "technology",
+        "description": "Master popular online learning platforms and create engaging virtual classrooms.",
+        "duration": "1 Day",
+        "level": "Beginner",
+        "location": "Online",
+        "startDate": "April 20, 2024",
+        "price": "Free"
+      }
+    ],
+    "registerNow": "Register Now",
+    "benefits": {
+      "title": "Why Choose Our Trainings?",
+      "subtitle": "Discover the benefits of participating in our professional development programs",
+      "items": [
+        {
+          "title": "Certification",
+          "description": "Receive recognized certificates upon completion of our training programs"
+        },
+        {
+          "title": "Expert Instructors",
+          "description": "Learn from experienced educators and industry professionals"
+        },
+        {
+          "title": "Hands-on Practice",
+          "description": "Apply what you learn through practical exercises and real-world scenarios"
+        },
+        {
+          "title": "Networking",
+          "description": "Connect with fellow educators and build professional relationships"
+        }
+      ]
+    },
+    "upcomingEvents": {
+      "title": "Upcoming Training Events",
+      "subtitle": "Mark your calendar for these exciting professional development opportunities"
+    },
+    "cta": {
+      "title": "Ready to Advance Your Teaching Career?",
+      "subtitle": "Join hundreds of educators who have transformed their teaching through our professional development programs.",
+      "browseAll": "Browse All Trainings",
+      "contactUs": "Contact Us"
+    }
+  },
+  "publications": {
+    "hero": {
+      "title": "Publications & Research",
+      "subtitle": "Explore our research papers, reports, and educational resources that contribute to the advancement of education in Georgia"
+    },
+    "categories": [
+      {
+        "id": "all",
+        "name": "All Publications"
+      },
+      {
+        "id": "research",
+        "name": "Research Papers"
+      },
+      {
+        "id": "reports",
+        "name": "Annual Reports"
+      },
+      {
+        "id": "guides",
+        "name": "Educational Guides"
+      },
+      {
+        "id": "case-studies",
+        "name": "Case Studies"
+      }
+    ],
+    "publicationsList": [
+      {
+        "id": 1,
+        "title": "Digital Literacy Impact in Rural Georgian Schools",
+        "category": "research",
+        "authors": "Dr. Nino Kalandadze, Mariam Chkheidze",
+        "date": "March 2024",
+        "description": "A comprehensive study on the effectiveness of digital literacy programs in rural communities across Georgia."
+      },
+      {
+        "id": 2,
+        "title": "Annual Report 2023: Transforming Education in Georgia",
+        "category": "reports",
+        "authors": "Georgian Education Initiative",
+        "date": "January 2024",
+        "description": "Our comprehensive annual report highlighting achievements, challenges, and future plans for educational development."
+      },
+      {
+        "id": 3,
+        "title": "Teacher Professional Development: Best Practices Guide",
+        "category": "guides",
+        "authors": "David Mchedlishvili",
+        "date": "February 2024",
+        "description": "A practical guide for implementing effective teacher training programs in Georgian schools."
+      },
+      {
+        "id": 4,
+        "title": "STEM Education Success Story: Tbilisi Public School #5",
+        "category": "case-studies",
+        "authors": "Levan Beridze",
+        "date": "December 2023",
+        "description": "A detailed case study of successful STEM program implementation in a Tbilisi public school."
+      },
+      {
+        "id": 5,
+        "title": "Inclusive Education Policies: Recommendations for Georgia",
+        "category": "research",
+        "authors": "Ana Kapanadze, Dr. Tamar Kiknadze",
+        "date": "November 2023",
+        "description": "Research-based recommendations for developing inclusive education policies in Georgia."
+      },
+      {
+        "id": 6,
+        "title": "Technology Integration Handbook for Educators",
+        "category": "guides",
+        "authors": "Georgian Education Initiative",
+        "date": "October 2023",
+        "description": "A comprehensive handbook for teachers on integrating technology into their classrooms effectively."
+      }
+    ],
+    "downloadPDF": "Download PDF",
+    "featuredPublication": {
+      "title": "Featured Publication",
+      "publicationTitle": "Digital Literacy Impact in Rural Georgian Schools",
+      "description": "Our latest research study examines the transformative impact of digital literacy programs in rural communities across Georgia. This comprehensive study involved 50 schools and over 2,000 students, providing valuable insights into the effectiveness of technology integration in education.",
+      "stats": [
+        {
+          "value": "50",
+          "label": "Schools Studied"
+        },
+        {
+          "value": "2,000+",
+          "label": "Students Involved"
+        },
+        {
+          "value": "85%",
+          "label": "Success Rate"
+        }
+      ],
+      "readFullReport": "Read Full Report"
+    },
+    "researchAreas": {
+      "title": "Our Research Areas",
+      "subtitle": "We focus on key areas that drive educational innovation and improvement",
+      "areas": [
+        {
+          "title": "Technology Integration",
+          "description": "Research on effective technology integration in classrooms and digital literacy development."
+        },
+        {
+          "title": "Teacher Development",
+          "description": "Studies on professional development programs and their impact on teaching quality."
+        },
+        {
+          "title": "Inclusive Education",
+          "description": "Research on creating inclusive learning environments for all students."
+        },
+        {
+          "title": "STEM Education",
+          "description": "Studies on Science, Technology, Engineering, and Mathematics education effectiveness."
+        }
+      ]
+    }
+  },
+  "news": {
+    "hero": {
+      "title": "Latest News & Updates",
+      "subtitle": "Stay informed about our latest programs, achievements, and educational initiatives across Georgia"
+    },
+    "featured": "Featured",
+    "readFullArticle": "Read Full Article",
+    "recentNews": {
+      "title": "Recent News",
+      "subtitle": "Latest updates from our organization and educational community"
+    },
+    "readMore": "Read More",
+    "newsletter": {
+      "title": "Stay Updated",
+      "description": "Subscribe to our newsletter to receive the latest news and updates about our educational programs and initiatives.",
+      "placeholder": "Enter your email address",
+      "subscribe": "Subscribe"
+    },
+    "newsItems": [
+      {
+        "id": 1,
+        "title": "New Digital Literacy Program Launches in Rural Georgia",
+        "category": "Program Launch",
+        "date": "March 15, 2024",
+        "excerpt": "We are excited to announce the launch of our comprehensive digital literacy program reaching 25 rural schools across Georgia.",
+        "featured": true
+      },
+      {
+        "id": 2,
+        "title": "Partnership with European Education Foundation Announced",
+        "category": "Partnership",
+        "date": "March 10, 2024",
+        "excerpt": "We are proud to announce a new partnership with the European Education Foundation to enhance our teacher training programs.",
+        "featured": false
+      },
+      {
+        "id": 3,
+        "title": "Annual Education Conference 2024: Registration Now Open",
+        "category": "Event",
+        "date": "March 5, 2024",
+        "excerpt": "Join us for our annual education conference featuring keynote speakers, workshops, and networking opportunities.",
+        "featured": false
+      },
+      {
+        "id": 4,
+        "title": "Student Achievement Awards Ceremony Highlights",
+        "category": "Achievement",
+        "date": "February 28, 2024",
+        "excerpt": "Celebrating the outstanding achievements of students who participated in our STEM education programs.",
+        "featured": false
+      },
+      {
+        "id": 5,
+        "title": "New Research Grant Awarded for Inclusive Education Study",
+        "category": "Research",
+        "date": "February 20, 2024",
+        "excerpt": "We have been awarded a significant research grant to study inclusive education practices in Georgian schools.",
+        "featured": false
+      },
+      {
+        "id": 6,
+        "title": "Technology Donation Program Reaches 100 Schools",
+        "category": "Milestone",
+        "date": "February 15, 2024",
+        "excerpt": "Our technology donation program has successfully provided computers and digital resources to 100 schools across Georgia.",
+        "featured": false
+      }
+    ]
+  },
+  "blog": {
+    "hero": {
+      "title": "Educational Insights & Perspectives",
+      "subtitle": "Explore thought-provoking articles, expert insights, and educational perspectives from our team and partners"
+    },
+    "readFullArticle": "Read Full Article",
+    "by": "By",
+    "minRead": "min read",
+    "featuredArticle": {
+      "title": "Featured Article",
+      "articleTitle": "The Future of Education in Georgia: Embracing Digital Transformation",
+      "description": "In this comprehensive article, Dr. Nino Kalandadze explores how digital transformation is reshaping education in Georgia. From the integration of technology in classrooms to the development of digital literacy skills, this piece examines the challenges and opportunities facing our educational system.",
+      "stats": {
+        "views": "Views",
+        "comments": "Comments",
+        "readTime": "Read Time"
+      }
+    },
+    "categories": {
+      "title": "Explore by Category",
+      "subtitle": "Find articles on topics that interest you most"
+    },
+    "blogPosts": [
+      {
+        "id": 1,
+        "title": "The Future of Education in Georgia: Embracing Digital Transformation",
+        "author": "Dr. Nino Kalandadze",
+        "date": "March 15, 2024",
+        "category": "Education Technology",
+        "excerpt": "Exploring how digital transformation is reshaping education in Georgia and what it means for students, teachers, and communities.",
+        "readTime": "5 min read"
+      },
+      {
+        "id": 2,
+        "title": "Building Inclusive Classrooms: Strategies for Success",
+        "author": "Ana Kapanadze",
+        "date": "March 10, 2024",
+        "category": "Inclusive Education",
+        "excerpt": "Practical strategies and best practices for creating inclusive learning environments that support all students.",
+        "readTime": "7 min read"
+      },
+      {
+        "id": 3,
+        "title": "STEM Education: Inspiring the Next Generation of Innovators",
+        "author": "Levan Beridze",
+        "date": "March 5, 2024",
+        "category": "STEM Education",
+        "excerpt": "How STEM education programs are preparing Georgian students for future careers in science and technology.",
+        "readTime": "6 min read"
+      },
+      {
+        "id": 4,
+        "title": "Teacher Professional Development: Investing in Quality Education",
+        "author": "David Mchedlishvili",
+        "date": "February 28, 2024",
+        "category": "Professional Development",
+        "excerpt": "The importance of continuous professional development for teachers and its impact on student learning outcomes.",
+        "readTime": "8 min read"
+      },
+      {
+        "id": 5,
+        "title": "Community Engagement in Education: Lessons from Rural Georgia",
+        "author": "Mariam Chkheidze",
+        "date": "February 20, 2024",
+        "category": "Community Engagement",
+        "excerpt": "How community involvement is transforming education in rural areas and creating lasting positive change.",
+        "readTime": "4 min read"
+      },
+      {
+        "id": 6,
+        "title": "Digital Literacy: Bridging the Technology Gap",
+        "author": "Giorgi Tsiklauri",
+        "date": "February 15, 2024",
+        "category": "Digital Literacy",
+        "excerpt": "Addressing the digital divide and ensuring all students have access to essential technology skills.",
+        "readTime": "6 min read"
+      }
+    ],
+    "categoryCards": [
+      {
+        "title": "Education Technology",
+        "description": "Latest trends and innovations in educational technology"
+      },
+      {
+        "title": "Inclusive Education",
+        "description": "Strategies for creating inclusive learning environments"
+      },
+      {
+        "title": "STEM Education",
+        "description": "Science, Technology, Engineering, and Mathematics education"
+      },
+      {
+        "title": "Professional Development",
+        "description": "Teacher training and professional growth strategies"
+      }
+    ]
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact Us",
+      "subtitle": "Get in touch with us to learn more about our programs or to get involved"
+    },
+    "getInTouch": {
+      "title": "Get In Touch",
+      "description": "We'd love to hear from you. Whether you have questions about our programs, want to get involved, or just want to learn more, we're here to help."
+    },
+    "contactInfo": {
+      "address": {
+        "title": "Address",
+        "street": "123 Education Street",
+        "city": "Tbilisi, Georgia 0101"
+      },
+      "phone": {
+        "title": "Phone",
+        "number": "+995 32 123 4567"
+      },
+      "email": {
+        "title": "Email",
+        "address": "info@georgianeducation.ge"
+      },
+      "officeHours": {
+        "title": "Office Hours",
+        "weekdays": "Monday - Friday: 9:00 AM - 6:00 PM",
+        "saturday": "Saturday: 10:00 AM - 2:00 PM"
+      }
+    },
+    "form": {
+      "title": "Send Us a Message",
+      "fullName": "Full Name *",
+      "emailAddress": "Email Address *",
+      "subject": "Subject *",
+      "message": "Message *",
+      "sendMessage": "Send Message"
+    },
+    "map": {
+      "title": "Interactive Map",
+      "description": "Our office location in Tbilisi, Georgia"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Find answers to common questions about our organization and programs",
+      "questions": [
+        {
+          "question": "How can I get involved with your programs?",
+          "answer": "There are many ways to get involved! You can volunteer, donate, partner with us, or participate in our training programs. Contact us to learn more about specific opportunities."
+        },
+        {
+          "question": "Do you offer training programs for teachers?",
+          "answer": "Yes, we offer comprehensive professional development programs for educators. Our training covers modern teaching methodologies, technology integration, and student engagement strategies."
+        },
+        {
+          "question": "How can I donate to support your work?",
+          "answer": "You can donate through our website, by bank transfer, or by contacting us directly. All donations go directly to supporting our educational programs across Georgia."
+        },
+        {
+          "question": "Do you work with schools outside of Tbilisi?",
+          "answer": "Absolutely! We work with schools throughout Georgia, with a particular focus on rural and underserved communities. Our programs reach students and teachers across the country."
+        }
+      ]
+    },
+    "successMessage": "Thank you for your message! We will get back to you soon."
+  },
   "footer": {
     "title": "Georgian Education Initiative",
     "description": "Empowering education and fostering academic excellence across Georgia through innovative programs, research, and community engagement.",

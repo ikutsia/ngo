@@ -1,74 +1,22 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const News = () => {
-  const newsItems = [
-    {
-      id: 1,
-      title: "New Digital Literacy Program Launches in Rural Georgia",
-      category: "Program Launch",
-      date: "March 15, 2024",
-      excerpt:
-        "We are excited to announce the launch of our comprehensive digital literacy program reaching 25 rural schools across Georgia.",
-      image:
+  const { t } = useTranslation();
+
+  const newsItems = t("news.newsItems", { returnObjects: true }).map(
+    (item, index) => ({
+      ...item,
+      image: [
         "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      featured: true,
-    },
-    {
-      id: 2,
-      title: "Partnership with European Education Foundation Announced",
-      category: "Partnership",
-      date: "March 10, 2024",
-      excerpt:
-        "We are proud to announce a new partnership with the European Education Foundation to enhance our teacher training programs.",
-      image:
         "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      featured: false,
-    },
-    {
-      id: 3,
-      title: "Annual Education Conference 2024: Registration Now Open",
-      category: "Event",
-      date: "March 5, 2024",
-      excerpt:
-        "Join us for our annual education conference featuring keynote speakers, workshops, and networking opportunities.",
-      image:
         "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      featured: false,
-    },
-    {
-      id: 4,
-      title: "Student Achievement Awards Ceremony Highlights",
-      category: "Achievement",
-      date: "February 28, 2024",
-      excerpt:
-        "Celebrating the outstanding achievements of students who participated in our STEM education programs.",
-      image:
         "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      featured: false,
-    },
-    {
-      id: 5,
-      title: "New Research Grant Awarded for Inclusive Education Study",
-      category: "Research",
-      date: "February 20, 2024",
-      excerpt:
-        "We have been awarded a significant research grant to study inclusive education practices in Georgian schools.",
-      image:
         "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      featured: false,
-    },
-    {
-      id: 6,
-      title: "Technology Donation Program Reaches 100 Schools",
-      category: "Milestone",
-      date: "February 15, 2024",
-      excerpt:
-        "Our technology donation program has successfully provided computers and digital resources to 100 schools across Georgia.",
-      image:
         "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      featured: false,
-    },
-  ];
+      ][index],
+    })
+  );
 
   const featuredNews = newsItems.find((item) => item.featured);
   const regularNews = newsItems.filter((item) => !item.featured);
@@ -80,11 +28,10 @@ const News = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-5 font-serif">
-              Latest News & Updates
+              {t("news.hero.title")}
             </h1>
             <p className="text-xl leading-relaxed opacity-90 max-w-2xl mx-auto">
-              Stay informed about our latest programs, achievements, and
-              educational initiatives across Georgia
+              {t("news.hero.subtitle")}
             </p>
           </div>
         </div>
@@ -102,7 +49,7 @@ const News = () => {
                   className="w-full h-96 object-cover rounded-2xl shadow-xl"
                 />
                 <div className="absolute top-5 left-5 bg-primary text-white px-4 py-2 rounded-full text-sm font-semibold">
-                  Featured
+                  {t("news.featured")}
                 </div>
               </div>
               <div className="space-y-6">
@@ -121,7 +68,7 @@ const News = () => {
                   {featuredNews.excerpt}
                 </p>
                 <button className="bg-primary text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-primary-dark">
-                  Read Full Article
+                  {t("news.readFullArticle")}
                 </button>
               </div>
             </div>
@@ -134,10 +81,10 @@ const News = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-secondary mb-5 font-serif">
-              Recent News
+              {t("news.recentNews.title")}
             </h2>
             <p className="text-xl text-gray-text max-w-2xl mx-auto">
-              Latest updates from our organization and educational community
+              {t("news.recentNews.subtitle")}
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -167,7 +114,7 @@ const News = () => {
                     {news.excerpt}
                   </p>
                   <button className="bg-primary text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-primary-dark">
-                    Read More
+                    {t("news.readMore")}
                   </button>
                 </div>
               </div>
@@ -180,15 +127,16 @@ const News = () => {
       <section className="bg-gradient-to-br from-primary to-primary-dark text-white py-20 text-center">
         <div className="max-w-6xl mx-auto px-5">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-4xl font-bold mb-5 font-serif">Stay Updated</h2>
+            <h2 className="text-4xl font-bold mb-5 font-serif">
+              {t("news.newsletter.title")}
+            </h2>
             <p className="text-xl leading-relaxed opacity-90 mb-10">
-              Subscribe to our newsletter to receive the latest news and updates
-              about our educational programs and initiatives.
+              {t("news.newsletter.description")}
             </p>
             <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
                 type="email"
-                placeholder="Enter your email address"
+                placeholder={t("news.newsletter.placeholder")}
                 required
                 className="flex-1 px-5 py-4 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
               />
@@ -196,7 +144,7 @@ const News = () => {
                 type="submit"
                 className="bg-secondary text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-secondary-light"
               >
-                Subscribe
+                {t("news.newsletter.subscribe")}
               </button>
             </form>
           </div>

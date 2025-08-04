@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,9 +21,12 @@ const Contact = () => {
     e.preventDefault();
     // Handle form submission here
     console.log("Form submitted:", formData);
-    alert("Thank you for your message! We will get back to you soon.");
+    alert(t("contact.successMessage"));
     setFormData({ name: "", email: "", subject: "", message: "" });
   };
+
+  const contactInfo = t("contact.contactInfo", { returnObjects: true });
+  const faqQuestions = t("contact.faq.questions", { returnObjects: true });
 
   return (
     <div className="min-h-screen">
@@ -30,11 +35,10 @@ const Contact = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-5 font-serif">
-              Contact Us
+              {t("contact.hero.title")}
             </h1>
             <p className="text-xl leading-relaxed opacity-90 max-w-2xl mx-auto">
-              Get in touch with us to learn more about our programs or to get
-              involved
+              {t("contact.hero.subtitle")}
             </p>
           </div>
         </div>
@@ -47,12 +51,10 @@ const Contact = () => {
             <div className="space-y-10">
               <div>
                 <h2 className="text-4xl font-bold text-secondary mb-5 font-serif">
-                  Get In Touch
+                  {t("contact.getInTouch.title")}
                 </h2>
                 <p className="text-lg text-gray-text leading-relaxed">
-                  We'd love to hear from you. Whether you have questions about
-                  our programs, want to get involved, or just want to learn
-                  more, we're here to help.
+                  {t("contact.getInTouch.description")}
                 </p>
               </div>
 
@@ -63,12 +65,12 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-secondary mb-2">
-                      Address
+                      {contactInfo.address.title}
                     </h3>
                     <p className="text-gray-text leading-relaxed">
-                      123 Education Street
+                      {contactInfo.address.street}
                       <br />
-                      Tbilisi, Georgia 0101
+                      {contactInfo.address.city}
                     </p>
                   </div>
                 </div>
@@ -79,10 +81,10 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-secondary mb-2">
-                      Phone
+                      {contactInfo.phone.title}
                     </h3>
                     <p className="text-gray-text leading-relaxed">
-                      +995 32 123 4567
+                      {contactInfo.phone.number}
                     </p>
                   </div>
                 </div>
@@ -93,10 +95,10 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-secondary mb-2">
-                      Email
+                      {contactInfo.email.title}
                     </h3>
                     <p className="text-gray-text leading-relaxed">
-                      info@georgianeducation.ge
+                      {contactInfo.email.address}
                     </p>
                   </div>
                 </div>
@@ -107,12 +109,12 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-secondary mb-2">
-                      Office Hours
+                      {contactInfo.officeHours.title}
                     </h3>
                     <p className="text-gray-text leading-relaxed">
-                      Monday - Friday: 9:00 AM - 6:00 PM
+                      {contactInfo.officeHours.weekdays}
                       <br />
-                      Saturday: 10:00 AM - 2:00 PM
+                      {contactInfo.officeHours.saturday}
                     </p>
                   </div>
                 </div>
@@ -122,7 +124,7 @@ const Contact = () => {
             <div className="bg-white p-10 rounded-2xl shadow-xl">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <h2 className="text-3xl font-bold text-secondary mb-8 font-serif">
-                  Send Us a Message
+                  {t("contact.form.title")}
                 </h2>
 
                 <div>
@@ -130,7 +132,7 @@ const Contact = () => {
                     htmlFor="name"
                     className="block text-secondary font-semibold mb-2 text-sm"
                   >
-                    Full Name *
+                    {t("contact.form.fullName")}
                   </label>
                   <input
                     type="text"
@@ -148,7 +150,7 @@ const Contact = () => {
                     htmlFor="email"
                     className="block text-secondary font-semibold mb-2 text-sm"
                   >
-                    Email Address *
+                    {t("contact.form.emailAddress")}
                   </label>
                   <input
                     type="email"
@@ -166,7 +168,7 @@ const Contact = () => {
                     htmlFor="subject"
                     className="block text-secondary font-semibold mb-2 text-sm"
                   >
-                    Subject *
+                    {t("contact.form.subject")}
                   </label>
                   <input
                     type="text"
@@ -184,7 +186,7 @@ const Contact = () => {
                     htmlFor="message"
                     className="block text-secondary font-semibold mb-2 text-sm"
                   >
-                    Message *
+                    {t("contact.form.message")}
                   </label>
                   <textarea
                     id="message"
@@ -201,7 +203,7 @@ const Contact = () => {
                   type="submit"
                   className="w-full bg-gradient-to-r from-primary to-primary-dark text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:-translate-y-1 transform"
                 >
-                  Send Message
+                  {t("contact.form.sendMessage")}
                 </button>
               </form>
             </div>
@@ -216,10 +218,10 @@ const Contact = () => {
             <div className="bg-white p-20 rounded-2xl shadow-xl text-center">
               <i className="fas fa-map text-6xl text-primary mb-6"></i>
               <h3 className="text-2xl font-bold text-secondary mb-4">
-                Interactive Map
+                {t("contact.map.title")}
               </h3>
               <p className="text-lg text-gray-text">
-                Our office location in Tbilisi, Georgia
+                {t("contact.map.description")}
               </p>
             </div>
           </div>
@@ -231,59 +233,25 @@ const Contact = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-secondary mb-5 font-serif">
-              Frequently Asked Questions
+              {t("contact.faq.title")}
             </h2>
             <p className="text-xl text-gray-text max-w-2xl mx-auto">
-              Find answers to common questions about our organization and
-              programs
+              {t("contact.faq.subtitle")}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div className="bg-white p-8 rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <h3 className="text-lg font-semibold text-secondary mb-4">
-                How can I get involved with your programs?
-              </h3>
-              <p className="text-gray-text leading-relaxed">
-                There are many ways to get involved! You can volunteer, donate,
-                partner with us, or participate in our training programs.
-                Contact us to learn more about specific opportunities.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <h3 className="text-lg font-semibold text-secondary mb-4">
-                Do you offer training programs for teachers?
-              </h3>
-              <p className="text-gray-text leading-relaxed">
-                Yes, we offer comprehensive professional development programs
-                for educators. Our training covers modern teaching
-                methodologies, technology integration, and student engagement
-                strategies.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <h3 className="text-lg font-semibold text-secondary mb-4">
-                How can I donate to support your work?
-              </h3>
-              <p className="text-gray-text leading-relaxed">
-                You can donate through our website, by bank transfer, or by
-                contacting us directly. All donations go directly to supporting
-                our educational programs across Georgia.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <h3 className="text-lg font-semibold text-secondary mb-4">
-                Do you work with schools outside of Tbilisi?
-              </h3>
-              <p className="text-gray-text leading-relaxed">
-                Absolutely! We work with schools throughout Georgia, with a
-                particular focus on rural and underserved communities. Our
-                programs reach students and teachers across the country.
-              </p>
-            </div>
+            {faqQuestions.map((faq, index) => (
+              <div
+                key={index}
+                className="bg-white p-8 rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-2"
+              >
+                <h3 className="text-lg font-semibold text-secondary mb-4">
+                  {faq.question}
+                </h3>
+                <p className="text-gray-text leading-relaxed">{faq.answer}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

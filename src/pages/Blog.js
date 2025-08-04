@@ -1,81 +1,24 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const Blog = () => {
-  const blogPosts = [
-    {
-      id: 1,
-      title:
-        "The Future of Education in Georgia: Embracing Digital Transformation",
-      author: "Dr. Nino Kalandadze",
-      date: "March 15, 2024",
-      category: "Education Technology",
-      excerpt:
-        "Exploring how digital transformation is reshaping education in Georgia and what it means for students, teachers, and communities.",
-      image:
+  const { t } = useTranslation();
+
+  const blogPosts = t("blog.blogPosts", { returnObjects: true }).map(
+    (post, index) => ({
+      ...post,
+      image: [
         "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      readTime: "5 min read",
-    },
-    {
-      id: 2,
-      title: "Building Inclusive Classrooms: Strategies for Success",
-      author: "Ana Kapanadze",
-      date: "March 10, 2024",
-      category: "Inclusive Education",
-      excerpt:
-        "Practical strategies and best practices for creating inclusive learning environments that support all students.",
-      image:
         "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      readTime: "7 min read",
-    },
-    {
-      id: 3,
-      title: "STEM Education: Inspiring the Next Generation of Innovators",
-      author: "Levan Beridze",
-      date: "March 5, 2024",
-      category: "STEM Education",
-      excerpt:
-        "How STEM education programs are preparing Georgian students for future careers in science and technology.",
-      image:
         "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      readTime: "6 min read",
-    },
-    {
-      id: 4,
-      title: "Teacher Professional Development: Investing in Quality Education",
-      author: "David Mchedlishvili",
-      date: "February 28, 2024",
-      category: "Professional Development",
-      excerpt:
-        "The importance of continuous professional development for teachers and its impact on student learning outcomes.",
-      image:
         "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      readTime: "8 min read",
-    },
-    {
-      id: 5,
-      title: "Community Engagement in Education: Lessons from Rural Georgia",
-      author: "Mariam Chkheidze",
-      date: "February 20, 2024",
-      category: "Community Engagement",
-      excerpt:
-        "How community involvement is transforming education in rural areas and creating lasting positive change.",
-      image:
         "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      readTime: "4 min read",
-    },
-    {
-      id: 6,
-      title: "Digital Literacy: Bridging the Technology Gap",
-      author: "Giorgi Tsiklauri",
-      date: "February 15, 2024",
-      category: "Digital Literacy",
-      excerpt:
-        "Addressing the digital divide and ensuring all students have access to essential technology skills.",
-      image:
         "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      readTime: "6 min read",
-    },
-  ];
+      ][index],
+    })
+  );
+
+  const categoryCards = t("blog.categoryCards", { returnObjects: true });
 
   return (
     <div className="min-h-screen">
@@ -84,11 +27,10 @@ const Blog = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-5 font-serif">
-              Educational Insights & Perspectives
+              {t("blog.hero.title")}
             </h1>
             <p className="text-xl leading-relaxed opacity-90 max-w-2xl mx-auto">
-              Explore thought-provoking articles, expert insights, and
-              educational perspectives from our team and partners
+              {t("blog.hero.subtitle")}
             </p>
           </div>
         </div>
@@ -116,7 +58,7 @@ const Blog = () => {
                 <div className="p-6">
                   <div className="flex gap-4 mb-4 flex-wrap text-sm">
                     <span className="text-primary font-semibold">
-                      By {post.author}
+                      {t("blog.by")} {post.author}
                     </span>
                     <span className="text-gray-text">{post.date}</span>
                     <span className="text-gray-text">{post.readTime}</span>
@@ -128,7 +70,7 @@ const Blog = () => {
                     {post.excerpt}
                   </p>
                   <button className="bg-primary text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-primary-dark">
-                    Read Full Article
+                    {t("blog.readFullArticle")}
                   </button>
                 </div>
               </article>
@@ -143,18 +85,13 @@ const Blog = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
               <h2 className="text-3xl font-bold text-primary font-serif">
-                Featured Article
+                {t("blog.featuredArticle.title")}
               </h2>
               <h3 className="text-2xl font-bold text-secondary leading-tight">
-                The Future of Education in Georgia: Embracing Digital
-                Transformation
+                {t("blog.featuredArticle.articleTitle")}
               </h3>
               <p className="text-gray-text leading-relaxed text-lg">
-                In this comprehensive article, Dr. Nino Kalandadze explores how
-                digital transformation is reshaping education in Georgia. From
-                the integration of technology in classrooms to the development
-                of digital literacy skills, this piece examines the challenges
-                and opportunities facing our educational system.
+                {t("blog.featuredArticle.description")}
               </p>
               <div className="grid grid-cols-3 gap-6 mb-8">
                 <div className="text-center">
@@ -162,7 +99,7 @@ const Blog = () => {
                     2,500+
                   </span>
                   <span className="text-gray-text text-sm font-medium">
-                    Views
+                    {t("blog.featuredArticle.stats.views")}
                   </span>
                 </div>
                 <div className="text-center">
@@ -170,20 +107,20 @@ const Blog = () => {
                     150+
                   </span>
                   <span className="text-gray-text text-sm font-medium">
-                    Comments
+                    {t("blog.featuredArticle.stats.comments")}
                   </span>
                 </div>
                 <div className="text-center">
                   <span className="block text-3xl font-bold text-primary mb-2">
-                    5 min
+                    5 {t("blog.minRead")}
                   </span>
                   <span className="text-gray-text text-sm font-medium">
-                    Read Time
+                    {t("blog.featuredArticle.stats.readTime")}
                   </span>
                 </div>
               </div>
               <button className="bg-primary text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-primary-dark transform hover:-translate-y-1">
-                Read Full Article
+                {t("blog.readFullArticle")}
               </button>
             </div>
             <div>
@@ -202,57 +139,29 @@ const Blog = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-secondary mb-5 font-serif">
-              Explore by Category
+              {t("blog.categories.title")}
             </h2>
             <p className="text-xl text-gray-text max-w-2xl mx-auto">
-              Find articles on topics that interest you most
+              {t("blog.categories.subtitle")}
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-            <div className="bg-white p-10 rounded-2xl text-center shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center mx-auto mb-6">
-                <i className="fas fa-laptop text-3xl text-white"></i>
+            {categoryCards.map((card, index) => (
+              <div
+                key={index}
+                className="bg-white p-10 rounded-2xl text-center shadow-lg transition-transform duration-300 hover:-translate-y-2"
+              >
+                <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center mx-auto mb-6">
+                  <i className="fas fa-laptop text-3xl text-white"></i>
+                </div>
+                <h3 className="text-xl font-bold text-secondary mb-4">
+                  {card.title}
+                </h3>
+                <p className="text-gray-text leading-relaxed">
+                  {card.description}
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-secondary mb-4">
-                Education Technology
-              </h3>
-              <p className="text-gray-text leading-relaxed">
-                Latest trends and innovations in educational technology
-              </p>
-            </div>
-            <div className="bg-white p-10 rounded-2xl text-center shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center mx-auto mb-6">
-                <i className="fas fa-users text-3xl text-white"></i>
-              </div>
-              <h3 className="text-xl font-bold text-secondary mb-4">
-                Inclusive Education
-              </h3>
-              <p className="text-gray-text leading-relaxed">
-                Strategies for creating inclusive learning environments
-              </p>
-            </div>
-            <div className="bg-white p-10 rounded-2xl text-center shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center mx-auto mb-6">
-                <i className="fas fa-flask text-3xl text-white"></i>
-              </div>
-              <h3 className="text-xl font-bold text-secondary mb-4">
-                STEM Education
-              </h3>
-              <p className="text-gray-text leading-relaxed">
-                Science, Technology, Engineering, and Mathematics education
-              </p>
-            </div>
-            <div className="bg-white p-10 rounded-2xl text-center shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center mx-auto mb-6">
-                <i className="fas fa-chalkboard-teacher text-3xl text-white"></i>
-              </div>
-              <h3 className="text-xl font-bold text-secondary mb-4">
-                Professional Development
-              </h3>
-              <p className="text-gray-text leading-relaxed">
-                Teacher training and professional growth strategies
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>

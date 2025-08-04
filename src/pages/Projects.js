@@ -1,102 +1,51 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Projects = () => {
+  const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState("all");
 
   const categories = [
-    { id: "all", name: "All Projects" },
-    { id: "digital-literacy", name: "Digital Literacy" },
-    { id: "teacher-development", name: "Teacher Development" },
-    { id: "stem-education", name: "STEM Education" },
-    { id: "rural-education", name: "Rural Education" },
-    { id: "special-needs", name: "Special Needs" },
+    { id: "all", name: t("projects.categories.all") },
+    { id: "digital-literacy", name: t("projects.categories.digital-literacy") },
+    {
+      id: "teacher-development",
+      name: t("projects.categories.teacher-development"),
+    },
+    { id: "stem-education", name: t("projects.categories.stem-education") },
+    { id: "rural-education", name: t("projects.categories.rural-education") },
+    { id: "special-needs", name: t("projects.categories.special-needs") },
   ];
 
-  const projects = [
-    {
-      id: 1,
-      title: "Digital Literacy Program",
-      category: "digital-literacy",
-      description:
-        "Comprehensive digital skills training for students and teachers in rural communities.",
-      image:
+  const projects = t("projects.projectList", { returnObjects: true }).map(
+    (project, index) => ({
+      id: index + 1,
+      ...project,
+      category: [
+        "digital-literacy",
+        "teacher-development",
+        "stem-education",
+        "rural-education",
+        "special-needs",
+        "stem-education",
+      ][index],
+      image: [
         "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      status: "Active",
-      duration: "2022-2025",
-      participants: "2,500+",
-      location: "Rural Georgia",
-    },
-    {
-      id: 2,
-      title: "Teacher Development Initiative",
-      category: "teacher-development",
-      description:
-        "Professional development programs to enhance teaching methodologies and student engagement.",
-      image:
         "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      status: "Active",
-      duration: "2021-2024",
-      participants: "200+",
-      location: "Nationwide",
-    },
-    {
-      id: 3,
-      title: "STEM Education for Youth",
-      category: "stem-education",
-      description:
-        "Hands-on science, technology, engineering, and mathematics programs for students.",
-      image:
         "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      status: "Active",
-      duration: "2023-2026",
-      participants: "1,800+",
-      location: "Tbilisi & Regions",
-    },
-    {
-      id: 4,
-      title: "Rural School Connectivity",
-      category: "rural-education",
-      description:
-        "Providing internet access and technology infrastructure to remote schools.",
-      image:
         "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      status: "Completed",
-      duration: "2020-2023",
-      participants: "150+",
-      location: "Mountain Regions",
-    },
-    {
-      id: 5,
-      title: "Inclusive Education Program",
-      category: "special-needs",
-      description:
-        "Supporting students with special needs through specialized resources and training.",
-      image:
         "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      status: "Active",
-      duration: "2022-2025",
-      participants: "500+",
-      location: "Nationwide",
-    },
-    {
-      id: 6,
-      title: "Coding Bootcamp for Teens",
-      category: "stem-education",
-      description:
-        "Intensive programming courses to prepare students for tech careers.",
-      image:
         "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      status: "Active",
-      duration: "2024-2025",
-      participants: "300+",
-      location: "Tbilisi",
-    },
-  ];
+      ][index],
+    })
+  );
 
   const filteredProjects =
     activeCategory === "all"
       ? projects
       : projects.filter((project) => project.category === activeCategory);
+
+  const impactStats = t("projects.impact.stats", { returnObjects: true });
 
   return (
     <div className="min-h-screen">
@@ -105,11 +54,10 @@ const Projects = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-5 font-serif">
-              Our Projects
+              {t("projects.hero.title")}
             </h1>
             <p className="text-xl leading-relaxed opacity-90 max-w-2xl mx-auto">
-              Discover our innovative educational initiatives that are
-              transforming learning across Georgia
+              {t("projects.hero.subtitle")}
             </p>
           </div>
         </div>
@@ -153,7 +101,8 @@ const Projects = () => {
                   />
                   <div
                     className={`absolute top-4 right-4 px-4 py-2 rounded-full text-sm font-semibold text-white ${
-                      project.status.toLowerCase() === "active"
+                      project.status.toLowerCase() === "active" ||
+                      project.status.toLowerCase() === "აქტიური"
                         ? "bg-green-500"
                         : "bg-blue-500"
                     }`}
@@ -175,7 +124,9 @@ const Projects = () => {
                     </div>
                     <div className="flex items-center gap-3 text-gray-text text-sm">
                       <i className="fas fa-users text-primary w-4"></i>
-                      <span>{project.participants} Participants</span>
+                      <span>
+                        {project.participants} {t("projects.participants")}
+                      </span>
                     </div>
                     <div className="flex items-center gap-3 text-gray-text text-sm">
                       <i className="fas fa-map-marker-alt text-primary w-4"></i>
@@ -183,7 +134,7 @@ const Projects = () => {
                     </div>
                   </div>
                   <button className="w-full bg-primary text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 hover:bg-primary-dark">
-                    Learn More
+                    {t("projects.learnMore")}
                   </button>
                 </div>
               </div>
@@ -197,40 +148,26 @@ const Projects = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-secondary mb-5 font-serif">
-              Project Impact
+              {t("projects.impact.title")}
             </h2>
             <p className="text-xl text-gray-text max-w-2xl mx-auto">
-              Our projects have made a significant difference in communities
-              across Georgia
+              {t("projects.impact.subtitle")}
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
-            <div className="text-center p-10 bg-white rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <div className="text-4xl font-bold text-primary mb-3">25+</div>
-              <div className="text-lg font-medium text-secondary">
-                Active Projects
+            {impactStats.map((stat, index) => (
+              <div
+                key={index}
+                className="text-center p-10 bg-white rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-2"
+              >
+                <div className="text-4xl font-bold text-primary mb-3">
+                  {stat.number}
+                </div>
+                <div className="text-lg font-medium text-secondary">
+                  {stat.label}
+                </div>
               </div>
-            </div>
-            <div className="text-center p-10 bg-white rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <div className="text-4xl font-bold text-primary mb-3">500+</div>
-              <div className="text-lg font-medium text-secondary">
-                Schools Reached
-              </div>
-            </div>
-            <div className="text-center p-10 bg-white rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <div className="text-4xl font-bold text-primary mb-3">
-                10,000+
-              </div>
-              <div className="text-lg font-medium text-secondary">
-                Students Impacted
-              </div>
-            </div>
-            <div className="text-center p-10 bg-white rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <div className="text-4xl font-bold text-primary mb-3">200+</div>
-              <div className="text-lg font-medium text-secondary">
-                Teachers Trained
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -239,38 +176,43 @@ const Projects = () => {
       <section className="bg-gradient-to-br from-secondary to-secondary-light text-white py-20 text-center">
         <div className="max-w-6xl mx-auto px-5">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold mb-5 font-serif">Get Involved</h2>
+            <h2 className="text-4xl font-bold mb-5 font-serif">
+              {t("projects.getInvolved.title")}
+            </h2>
             <p className="text-xl leading-relaxed opacity-90 max-w-2xl mx-auto mb-12">
-              Join us in making a difference in education across Georgia. There
-              are many ways to support our projects.
+              {t("projects.getInvolved.subtitle")}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
               <div className="p-8 bg-white bg-opacity-10 rounded-2xl backdrop-blur-sm border border-white border-opacity-20">
                 <i className="fas fa-hand-holding-heart text-4xl text-primary mb-6"></i>
                 <h3 className="text-xl font-bold text-primary mb-4">
-                  Volunteer
+                  {t("projects.getInvolved.volunteer.title")}
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  Share your skills and time with our educational programs
+                  {t("projects.getInvolved.volunteer.description")}
                 </p>
               </div>
               <div className="p-8 bg-white bg-opacity-10 rounded-2xl backdrop-blur-sm border border-white border-opacity-20">
                 <i className="fas fa-donate text-4xl text-primary mb-6"></i>
-                <h3 className="text-xl font-bold text-primary mb-4">Donate</h3>
+                <h3 className="text-xl font-bold text-primary mb-4">
+                  {t("projects.getInvolved.donate.title")}
+                </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  Support our projects with financial contributions
+                  {t("projects.getInvolved.donate.description")}
                 </p>
               </div>
               <div className="p-8 bg-white bg-opacity-10 rounded-2xl backdrop-blur-sm border border-white border-opacity-20">
                 <i className="fas fa-handshake text-4xl text-primary mb-6"></i>
-                <h3 className="text-xl font-bold text-primary mb-4">Partner</h3>
+                <h3 className="text-xl font-bold text-primary mb-4">
+                  {t("projects.getInvolved.partner.title")}
+                </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  Collaborate with us on educational initiatives
+                  {t("projects.getInvolved.partner.description")}
                 </p>
               </div>
             </div>
             <button className="inline-block px-8 py-4 bg-primary text-white font-semibold rounded-lg transition-all duration-300 hover:bg-primary-dark transform hover:-translate-y-1">
-              Contact Us
+              {t("projects.getInvolved.contactUs")}
             </button>
           </div>
         </div>

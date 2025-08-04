@@ -1,107 +1,31 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Trainings = () => {
+  const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState("all");
 
-  const categories = [
-    { id: "all", name: "All Trainings" },
-    { id: "teachers", name: "Teacher Development" },
-    { id: "technology", name: "Technology Integration" },
-    { id: "leadership", name: "Educational Leadership" },
-    { id: "special-needs", name: "Special Education" },
-  ];
-
-  const trainings = [
-    {
-      id: 1,
-      title: "Modern Teaching Methodologies",
-      category: "teachers",
-      description:
-        "Learn innovative teaching strategies and classroom management techniques for the 21st century.",
-      duration: "3 Days",
-      level: "Intermediate",
-      location: "Tbilisi",
-      startDate: "March 15, 2024",
-      price: "Free",
-      image:
+  const categories = t("trainings.categories", { returnObjects: true });
+  const trainings = t("trainings.trainingsList", { returnObjects: true }).map(
+    (training, index) => ({
+      ...training,
+      image: [
         "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-    },
-    {
-      id: 2,
-      title: "Digital Tools for Education",
-      category: "technology",
-      description:
-        "Master digital tools and platforms to enhance student engagement and learning outcomes.",
-      duration: "2 Days",
-      level: "Beginner",
-      location: "Online",
-      startDate: "March 20, 2024",
-      price: "Free",
-      image:
         "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-    },
-    {
-      id: 3,
-      title: "School Leadership & Management",
-      category: "leadership",
-      description:
-        "Develop leadership skills for educational administrators and school principals.",
-      duration: "5 Days",
-      level: "Advanced",
-      location: "Tbilisi",
-      startDate: "April 5, 2024",
-      price: "Free",
-      image:
         "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-    },
-    {
-      id: 4,
-      title: "Inclusive Education Practices",
-      category: "special-needs",
-      description:
-        "Learn strategies for creating inclusive classrooms that support all students.",
-      duration: "2 Days",
-      level: "Intermediate",
-      location: "Batumi",
-      startDate: "April 10, 2024",
-      price: "Free",
-      image:
         "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-    },
-    {
-      id: 5,
-      title: "STEM Education Fundamentals",
-      category: "teachers",
-      description:
-        "Introduction to Science, Technology, Engineering, and Mathematics teaching methods.",
-      duration: "3 Days",
-      level: "Beginner",
-      location: "Kutaisi",
-      startDate: "April 15, 2024",
-      price: "Free",
-      image:
         "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-    },
-    {
-      id: 6,
-      title: "Online Learning Platforms",
-      category: "technology",
-      description:
-        "Master popular online learning platforms and create engaging virtual classrooms.",
-      duration: "1 Day",
-      level: "Beginner",
-      location: "Online",
-      startDate: "April 20, 2024",
-      price: "Free",
-      image:
         "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-    },
-  ];
+      ][index],
+    })
+  );
 
   const filteredTrainings =
     activeCategory === "all"
       ? trainings
       : trainings.filter((training) => training.category === activeCategory);
+
+  const benefits = t("trainings.benefits.items", { returnObjects: true });
 
   return (
     <div className="min-h-screen">
@@ -110,11 +34,10 @@ const Trainings = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-5 font-serif">
-              Professional Development Trainings
+              {t("trainings.hero.title")}
             </h1>
             <p className="text-xl leading-relaxed opacity-90 max-w-2xl mx-auto">
-              Enhance your teaching skills and advance your career with our
-              comprehensive training programs
+              {t("trainings.hero.subtitle")}
             </p>
           </div>
         </div>
@@ -186,7 +109,7 @@ const Trainings = () => {
                     </div>
                   </div>
                   <button className="w-full bg-primary text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 hover:bg-primary-dark">
-                    Register Now
+                    {t("trainings.registerNow")}
                   </button>
                 </div>
               </div>
@@ -200,61 +123,39 @@ const Trainings = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-secondary mb-5 font-serif">
-              Why Choose Our Trainings?
+              {t("trainings.benefits.title")}
             </h2>
             <p className="text-xl text-gray-text max-w-2xl mx-auto">
-              Discover the benefits of participating in our professional
-              development programs
+              {t("trainings.benefits.subtitle")}
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-            <div className="bg-white p-10 rounded-2xl text-center shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center mx-auto mb-6">
-                <i className="fas fa-certificate text-3xl text-white"></i>
+            {benefits.map((benefit, index) => (
+              <div
+                key={index}
+                className="bg-white p-10 rounded-2xl text-center shadow-lg transition-transform duration-300 hover:-translate-y-2"
+              >
+                <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center mx-auto mb-6">
+                  <i
+                    className={`fas ${
+                      index === 0
+                        ? "fa-certificate"
+                        : index === 1
+                        ? "fa-users"
+                        : index === 2
+                        ? "fa-hands-helping"
+                        : "fa-network-wired"
+                    } text-3xl text-white`}
+                  ></i>
+                </div>
+                <h3 className="text-xl font-bold text-secondary mb-4">
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-text leading-relaxed">
+                  {benefit.description}
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-secondary mb-4">
-                Certification
-              </h3>
-              <p className="text-gray-text leading-relaxed">
-                Receive recognized certificates upon completion of our training
-                programs
-              </p>
-            </div>
-            <div className="bg-white p-10 rounded-2xl text-center shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center mx-auto mb-6">
-                <i className="fas fa-users text-3xl text-white"></i>
-              </div>
-              <h3 className="text-xl font-bold text-secondary mb-4">
-                Expert Instructors
-              </h3>
-              <p className="text-gray-text leading-relaxed">
-                Learn from experienced educators and industry professionals
-              </p>
-            </div>
-            <div className="bg-white p-10 rounded-2xl text-center shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center mx-auto mb-6">
-                <i className="fas fa-hands-helping text-3xl text-white"></i>
-              </div>
-              <h3 className="text-xl font-bold text-secondary mb-4">
-                Hands-on Practice
-              </h3>
-              <p className="text-gray-text leading-relaxed">
-                Apply what you learn through practical exercises and real-world
-                scenarios
-              </p>
-            </div>
-            <div className="bg-white p-10 rounded-2xl text-center shadow-lg transition-transform duration-300 hover:-translate-y-2">
-              <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center mx-auto mb-6">
-                <i className="fas fa-network-wired text-3xl text-white"></i>
-              </div>
-              <h3 className="text-xl font-bold text-secondary mb-4">
-                Networking
-              </h3>
-              <p className="text-gray-text leading-relaxed">
-                Connect with fellow educators and build professional
-                relationships
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -264,11 +165,10 @@ const Trainings = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-secondary mb-5 font-serif">
-              Upcoming Training Events
+              {t("trainings.upcomingEvents.title")}
             </h2>
             <p className="text-xl text-gray-text max-w-2xl mx-auto">
-              Mark your calendar for these exciting professional development
-              opportunities
+              {t("trainings.upcomingEvents.subtitle")}
             </p>
           </div>
           <div className="max-w-4xl mx-auto space-y-10">
@@ -314,18 +214,17 @@ const Trainings = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold mb-5 font-serif">
-              Ready to Advance Your Teaching Career?
+              {t("trainings.cta.title")}
             </h2>
             <p className="text-xl leading-relaxed opacity-90 max-w-2xl mx-auto mb-12">
-              Join hundreds of educators who have transformed their teaching
-              through our professional development programs.
+              {t("trainings.cta.subtitle")}
             </p>
             <div className="flex flex-wrap gap-5 justify-center">
               <button className="inline-block px-8 py-4 bg-white text-primary font-semibold rounded-lg transition-all duration-300 hover:bg-transparent hover:text-white hover:border-2 hover:border-white transform hover:-translate-y-1">
-                Browse All Trainings
+                {t("trainings.cta.browseAll")}
               </button>
               <button className="inline-block px-8 py-4 bg-transparent text-white border-2 border-white font-semibold rounded-lg transition-all duration-300 hover:bg-white hover:text-primary transform hover:-translate-y-1">
-                Contact Us
+                {t("trainings.cta.contactUs")}
               </button>
             </div>
           </div>
