@@ -22,18 +22,18 @@ const Header = () => {
 
   return (
     <header className="bg-gradient-to-br from-white to-gray-light shadow-lg sticky top-0 z-50 border-b-3 border-primary">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center min-h-16 md:min-h-20 gap-4">
-        {/* Logo */}
+      <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 flex justify-between items-center min-h-16 md:min-h-20">
+        {/* Logo - Smaller on mobile */}
         <div className="logo flex-shrink-0">
           <Link
             to="/"
             onClick={closeMenu}
             className="no-underline text-secondary"
           >
-            <h1 className="m-0 text-xl md:text-2xl font-bold text-primary font-serif">
+            <h1 className="m-0 text-sm sm:text-lg md:text-2xl font-bold text-primary font-serif">
               {t("header.title")}
             </h1>
-            <p className="m-0 text-xs md:text-sm text-gray-text italic">
+            <p className="m-0 text-xs md:text-sm text-gray-text italic hidden sm:block">
               {t("header.subtitle")}
             </p>
           </Link>
@@ -208,33 +208,36 @@ const Header = () => {
           <LanguageSwitcher />
         </div>
 
-        {/* Mobile Language Switcher */}
-        <div className="md:hidden">
-          <LanguageSwitcher />
-        </div>
+        {/* Mobile Controls - Compact layout */}
+        <div className="md:hidden flex items-center space-x-0.5">
+          {/* Mobile Language Switcher - Smaller */}
+          <div className="transform scale-70 -mr-1">
+            <LanguageSwitcher />
+          </div>
 
-        {/* Mobile Hamburger Menu Button */}
-        <button
-          className="md:hidden flex flex-col justify-center items-center w-8 h-8 p-1 rounded-md hover:bg-gray-100 transition-colors duration-200"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          <span
-            className={`w-6 h-0.5 bg-secondary mb-1 transition-all duration-300 ease-in-out ${
-              isMenuOpen ? "rotate-45 translate-y-1" : ""
-            }`}
-          ></span>
-          <span
-            className={`w-6 h-0.5 bg-secondary mb-1 transition-all duration-300 ease-in-out ${
-              isMenuOpen ? "opacity-0" : ""
-            }`}
-          ></span>
-          <span
-            className={`w-6 h-0.5 bg-secondary transition-all duration-300 ease-in-out ${
-              isMenuOpen ? "-rotate-45 -translate-y-1" : ""
-            }`}
-          ></span>
-        </button>
+          {/* Mobile Hamburger Menu Button - Smaller */}
+          <button
+            className="flex flex-col justify-center items-center w-7 h-7 p-0.5 rounded-md hover:bg-gray-100 transition-colors duration-200 border border-gray-200"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            <span
+              className={`w-3.5 h-0.5 bg-primary mb-0.5 transition-all duration-300 ease-in-out ${
+                isMenuOpen ? "rotate-45 translate-y-1" : ""
+              }`}
+            ></span>
+            <span
+              className={`w-3.5 h-0.5 bg-primary mb-0.5 transition-all duration-300 ease-in-out ${
+                isMenuOpen ? "opacity-0" : ""
+              }`}
+            ></span>
+            <span
+              className={`w-3.5 h-0.5 bg-primary transition-all duration-300 ease-in-out ${
+                isMenuOpen ? "-rotate-45 -translate-y-1" : ""
+              }`}
+            ></span>
+          </button>
+        </div>
       </div>
 
       {/* Mobile Navigation Menu */}
