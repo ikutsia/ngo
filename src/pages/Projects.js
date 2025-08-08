@@ -60,7 +60,9 @@ const Projects = () => {
       setFirestoreProjects(projectsList);
     } catch (error) {
       console.error("Error loading Firestore projects:", error);
-      // Don't set fallback - just keep static projects
+      // If Firestore fails (e.g., unauthenticated users), just keep static projects
+      // This ensures the page still works for public users
+      setFirestoreProjects([]);
     }
   };
 

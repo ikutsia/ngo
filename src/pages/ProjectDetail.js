@@ -19,16 +19,21 @@ const ProjectDetail = () => {
 
       // First try to load from Firestore (for admin-added projects)
       if (projectId.startsWith("firestore-")) {
-        const firestoreId = projectId.replace("firestore-", "");
-        const docRef = doc(db, "projects", firestoreId);
-        const docSnap = await getDoc(docRef);
+        try {
+          const firestoreId = projectId.replace("firestore-", "");
+          const docRef = doc(db, "projects", firestoreId);
+          const docSnap = await getDoc(docRef);
 
-        if (docSnap.exists()) {
-          setProject({
-            id: projectId,
-            ...docSnap.data(),
-          });
-          return;
+          if (docSnap.exists()) {
+            setProject({
+              id: projectId,
+              ...docSnap.data(),
+            });
+            return;
+          }
+        } catch (firestoreError) {
+          console.error("Error loading from Firestore:", firestoreError);
+          // If Firestore fails (e.g., unauthenticated), continue to static projects
         }
       }
 
