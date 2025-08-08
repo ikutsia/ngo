@@ -1,112 +1,60 @@
-# Firebase Authentication Setup
+# Firebase Setup Guide
 
-This guide will help you set up Firebase Authentication for the NGO website.
-
-## 1. Create a Firebase Project
+## 1. Firebase Project Setup
 
 1. Go to [Firebase Console](https://console.firebase.google.com/)
-2. Click "Create a project" or "Add project"
-3. Enter your project name (e.g., "ngo-website")
-4. Choose whether to enable Google Analytics (optional)
-5. Click "Create project"
+2. Create a new project or select existing project
+3. Enable Authentication and Firestore Database
 
-## 2. Enable Authentication
+## 2. Authentication Setup
 
-1. In your Firebase project console, go to "Authentication" in the left sidebar
-2. Click "Get started"
-3. Go to the "Sign-in method" tab
-4. Enable "Email/Password" authentication
-5. Click "Save"
+1. In Firebase Console, go to "Authentication" → "Sign-in method"
+2. Enable "Email/Password" authentication
+3. Add your admin email addresses
 
 ## 3. Create Admin Users (IMPORTANT)
 
-Since this app doesn't have public signup, you need to create admin users through Firebase Console:
+Since public signup is disabled, you must create admin users directly in Firebase Console:
 
-1. Go to "Authentication" → "Users" tab
+1. Go to Firebase Console → "Authentication" → "Users"
 2. Click "Add user"
-3. Enter the admin's email and password
-4. Click "Add user"
-5. Repeat for all admin users
+3. Enter email and temporary password
+4. Share credentials with your admin team
+5. Users should change password on first login
 
-**Note**: Only users created through Firebase Console can access the admin dashboard.
+## 4. Firestore Database Setup
 
-## 4. Get Your Firebase Configuration
+1. Go to Firebase Console → "Firestore Database"
+2. Click "Create database"
+3. Choose "Start in test mode" (we'll add security rules)
+4. Select a location close to your users
 
-1. In your Firebase project console, click the gear icon (⚙️) next to "Project Overview"
-2. Select "Project settings"
-3. Scroll down to "Your apps" section
-4. Click the web icon (</>)
-5. Register your app with a nickname (e.g., "ngo-web-app")
-6. Copy the Firebase configuration object
+## 5. Firestore Security Rules (CRITICAL)
 
-## 5. Update Firebase Configuration
-
-Replace the placeholder configuration in `src/firebase/config.js` with your actual Firebase config:
+Replace the default rules with these secure rules that only allow authenticated users:
 
 ```javascript
-const firebaseConfig = {
-  apiKey: "your-actual-api-key",
-  authDomain: "your-project.firebaseapp.com",
-  projectId: "your-project-id",
-  storageBucket: "your-project.appspot.com",
-  messagingSenderId: "your-sender-id",
-  appId: "your-app-id",
-};
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow read/write only for authenticated users
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
 ```
 
-## 6. Test the Authentication
+**What this does:**
 
-1. Start your development server: `npm start`
-2. Navigate to `/login` to test the login functionality
-3. Navigate to `/admin` to access the protected admin dashboard
-4. Navigate to `/forgot-password` to test password reset
+- ✅ **Authenticated users** (like you when logged in) can read and write
+- ❌ **Unauthenticated users** cannot access any data
+- ✅ **Secure** - no public access
+- ✅ **Functional** - your admin panel will work
 
-## 7. Admin Functionality
+## 6. Environment Variables
 
-### Features Implemented:
-
-- ✅ Email/Password Authentication (Login only)
-- ✅ User Login/Logout
-- ✅ Password Reset
-- ✅ Protected Admin Routes
-- ✅ Admin Dashboard with Tailwind Styling
-- ✅ User Profile Management
-
-### Admin Routes:
-
-- `/login` - Login page (admin users only)
-- `/forgot-password` - Password reset page
-- `/admin` - Protected admin dashboard
-
-### Security Features:
-
-- **No public signup** - Users must be created through Firebase Console
-- Private routes that redirect unauthenticated users
-- Firebase security rules (configure in Firebase Console)
-- Email verification (can be enabled in Firebase Console)
-
-## 8. Customization
-
-### Adding More Admin Features:
-
-1. Create new components in `src/components/admin/`
-2. Add routes in `src/App.js`
-3. Use the `useAuth()` hook to access user data
-4. Style with Tailwind CSS classes
-
-### Styling:
-
-All components use Tailwind CSS classes that match your existing design system:
-
-- Primary colors: `text-primary`, `bg-primary`
-- Secondary colors: `text-secondary`, `bg-secondary`
-- Gray colors: `text-gray-text`, `bg-gray-light`
-
-## 9. Environment Variables (Recommended)
-
-For production, store your Firebase config in environment variables:
-
-1. Create a `.env` file in your project root:
+Add these to your `.env.local` file and Netlify environment variables:
 
 ```
 REACT_APP_FIREBASE_API_KEY=your-api-key
@@ -115,51 +63,53 @@ REACT_APP_FIREBASE_PROJECT_ID=your-project-id
 REACT_APP_FIREBASE_STORAGE_BUCKET=your-project.appspot.com
 REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-sender-id
 REACT_APP_FIREBASE_APP_ID=your-app-id
+REACT_APP_FIREBASE_MEASUREMENT_ID=your-measurement-id
 ```
 
-2. Update `src/firebase/config.js`:
+## 7. Test the Authentication
 
-```javascript
-const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-};
-```
+1. Start your app locally: `npm start`
+2. Go to `/login`
+3. Use admin credentials created in step 3
+4. You should be redirected to `/admin` dashboard
 
-## 10. Next Steps
+## 8. Admin Functionality
 
-1. **Add more admin features**: User management, content editing, analytics
-2. **Implement role-based access**: Different admin levels
-3. **Add email verification**: Require email verification before admin access
-4. **Add social login**: Google, Facebook, etc.
-5. **Add audit logging**: Track admin actions
-6. **Add two-factor authentication**: Enhanced security
+- **Login only** - No public signup
+- **Protected routes** - Only authenticated users can access `/admin`
+- **Project management** - Add, edit, delete projects via admin panel
+- **Secure** - Only you and your team can modify data
 
-## Troubleshooting
+## 9. Troubleshooting
 
 ### Common Issues:
 
-1. **"Firebase: Error (auth/user-not-found)"**: User doesn't exist - create them in Firebase Console
-2. **"Firebase: Error (auth/wrong-password)"**: Incorrect password
-3. **"Firebase: Error (auth/invalid-email)"**: Invalid email format
-4. **"Firebase: Error (auth/too-many-requests)"**: Too many login attempts
+1. **"Permission denied" error**: Check that you're logged in and Firestore rules allow authenticated users
+2. **"Firebase not initialized"**: Check environment variables are set correctly
+3. **"Invalid API key"**: Verify your Firebase project credentials
 
-### Debug Tips:
+### Debug Steps:
 
-- Check browser console for detailed error messages
-- Verify Firebase configuration is correct
-- Ensure Authentication is enabled in Firebase Console
-- Check network connectivity
-- Verify admin users are created in Firebase Console
+1. Check browser console for Firebase debug messages
+2. Verify you're logged in before accessing admin features
+3. Check Firestore rules in Firebase Console
+4. Ensure Firestore database is created and enabled
 
-### Security Best Practices:
+## 10. Security Best Practices
 
-1. **Create admin users only through Firebase Console**
-2. **Use strong passwords for admin accounts**
-3. **Enable email verification for admin accounts**
-4. **Regularly review and update admin user list**
-5. **Monitor authentication logs in Firebase Console**
+- ✅ Use strong passwords for admin accounts
+- ✅ Regularly rotate admin credentials
+- ✅ Monitor Firebase Console for suspicious activity
+- ✅ Consider implementing role-based access for larger teams
+- ✅ Keep Firebase SDK versions updated
+
+## 11. Deployment
+
+1. Push changes to GitHub
+2. Netlify will automatically deploy
+3. Ensure environment variables are set in Netlify dashboard
+4. Test admin functionality on live site
+
+---
+
+**Need help?** Check the browser console for detailed error messages and refer to this guide for troubleshooting steps.

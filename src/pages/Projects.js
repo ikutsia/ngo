@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { db } from "../firebase.config";
+import { collection, getDocs } from "firebase/firestore";
 
 const Projects = () => {
   const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState("all");
+  const [firestoreProjects, setFirestoreProjects] = useState([]);
+  const [loadingFirestore, setLoadingFirestore] = useState(false);
 
   const categories = [
     { id: "all", name: t("projects.categories.all") },
@@ -17,7 +21,8 @@ const Projects = () => {
     { id: "special-needs", name: t("projects.categories.special-needs") },
   ];
 
-  const projects = t("projects.projectList", { returnObjects: true }).map(
+  // Load static projects from translations (primary source)
+  const staticProjects = t("projects.projectList", { returnObjects: true }).map(
     (project, index) => ({
       id: index + 1,
       ...project,
@@ -40,10 +45,35 @@ const Projects = () => {
     })
   );
 
+  // Load additional projects from Firestore (optional enhancement)
+  useEffect(() => {
+    loadFirestoreProjects();
+  }, []);
+
+  const loadFirestoreProjects = async () => {
+    try {
+      setLoadingFirestore(true);
+      const querySnapshot = await getDocs(collection(db, "projects"));
+      const projectsList = querySnapshot.docs.map((doc) => ({
+        id: `firestore-${doc.id}`,
+        ...doc.data(),
+      }));
+      setFirestoreProjects(projectsList);
+    } catch (error) {
+      console.error("Error loading Firestore projects:", error);
+      // Don't set fallback - just keep static projects
+    } finally {
+      setLoadingFirestore(false);
+    }
+  };
+
+  // Combine static and Firestore projects
+  const allProjects = [...staticProjects, ...firestoreProjects];
+
   const filteredProjects =
     activeCategory === "all"
-      ? projects
-      : projects.filter((project) => project.category === activeCategory);
+      ? allProjects
+      : allProjects.filter((project) => project.category === activeCategory);
 
   const impactStats = t("projects.impact.stats", { returnObjects: true });
 
@@ -101,13 +131,15 @@ const Projects = () => {
                   />
                   <div
                     className={`absolute top-4 right-4 px-4 py-2 rounded-full text-sm font-semibold text-white ${
-                      project.status.toLowerCase() === "active" ||
-                      project.status.toLowerCase() === "აქტიური"
+                      project.status?.toLowerCase() === "active" ||
+                      project.status?.toLowerCase() === "აქტიური"
                         ? "bg-green-500"
-                        : "bg-blue-500"
+                        : project.status?.toLowerCase() === "completed"
+                        ? "bg-blue-500"
+                        : "bg-yellow-500"
                     }`}
                   >
-                    {project.status}
+                    {project.status || "Active"}
                   </div>
                 </div>
                 <div className="p-6">
@@ -118,20 +150,26 @@ const Projects = () => {
                     {project.description}
                   </p>
                   <div className="space-y-3 mb-6">
-                    <div className="flex items-center gap-3 text-gray-text text-sm">
-                      <i className="fas fa-calendar text-primary w-4"></i>
-                      <span>{project.duration}</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-gray-text text-sm">
-                      <i className="fas fa-users text-primary w-4"></i>
-                      <span>
-                        {project.participants} {t("projects.participants")}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-3 text-gray-text text-sm">
-                      <i className="fas fa-map-marker-alt text-primary w-4"></i>
-                      <span>{project.location}</span>
-                    </div>
+                    {project.duration && (
+                      <div className="flex items-center gap-3 text-gray-text text-sm">
+                        <i className="fas fa-calendar text-primary w-4"></i>
+                        <span>{project.duration}</span>
+                      </div>
+                    )}
+                    {project.participants && (
+                      <div className="flex items-center gap-3 text-gray-text text-sm">
+                        <i className="fas fa-users text-primary w-4"></i>
+                        <span>
+                          {project.participants} {t("projects.participants")}
+                        </span>
+                      </div>
+                    )}
+                    {project.location && (
+                      <div className="flex items-center gap-3 text-gray-text text-sm">
+                        <i className="fas fa-map-marker-alt text-primary w-4"></i>
+                        <span>{project.location}</span>
+                      </div>
+                    )}
                   </div>
                   <button className="w-full bg-primary text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 hover:bg-primary-dark">
                     {t("projects.learnMore")}

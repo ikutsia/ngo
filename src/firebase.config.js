@@ -3,6 +3,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore"; // Import Firestore
+import { getStorage } from "firebase/storage"; // Import Storage
 import { getAnalytics } from "firebase/analytics";
 
 // Firebase configuration using environment variables
@@ -84,12 +85,13 @@ if (missingFields.length > 0) {
 }
 
 // Initialize Firebase
-let app, auth, db, analytics;
+let app, auth, db, storage, analytics;
 
 try {
   app = initializeApp(firebaseConfig);
   auth = getAuth(app);
   db = getFirestore(app);
+  storage = getStorage(app);
 
   // Only initialize analytics if measurementId is provided
   if (firebaseConfig.measurementId) {
@@ -107,5 +109,5 @@ try {
 }
 
 // Export the Firebase services
-export { auth, db, analytics };
+export { auth, db, storage, analytics };
 export default app;

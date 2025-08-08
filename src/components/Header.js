@@ -210,6 +210,24 @@ const Header = () => {
                 ></span>
               </Link>
             </li>
+            <li
+              className={`${
+                isActive("/admin") ? "text-primary" : "text-secondary"
+              } md:w-auto md:text-center md:border-b-0 w-full text-center border-b border-gray-100`}
+            >
+              <Link
+                to="/admin"
+                onClick={closeMenu}
+                className="no-underline font-medium text-base py-2.5 relative transition-colors duration-300 hover:text-primary block py-4 px-5 text-lg md:py-2.5 md:px-0 md:text-base group"
+              >
+                Admin
+                <span
+                  className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ease-in-out ${
+                    isActive("/admin") ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                ></span>
+              </Link>
+            </li>
           </ul>
         </nav>
 
