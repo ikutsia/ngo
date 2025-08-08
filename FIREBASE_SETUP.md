@@ -18,7 +18,19 @@ This guide will help you set up Firebase Authentication for the NGO website.
 4. Enable "Email/Password" authentication
 5. Click "Save"
 
-## 3. Get Your Firebase Configuration
+## 3. Create Admin Users (IMPORTANT)
+
+Since this app doesn't have public signup, you need to create admin users through Firebase Console:
+
+1. Go to "Authentication" → "Users" tab
+2. Click "Add user"
+3. Enter the admin's email and password
+4. Click "Add user"
+5. Repeat for all admin users
+
+**Note**: Only users created through Firebase Console can access the admin dashboard.
+
+## 4. Get Your Firebase Configuration
 
 1. In your Firebase project console, click the gear icon (⚙️) next to "Project Overview"
 2. Select "Project settings"
@@ -27,7 +39,7 @@ This guide will help you set up Firebase Authentication for the NGO website.
 5. Register your app with a nickname (e.g., "ngo-web-app")
 6. Copy the Firebase configuration object
 
-## 4. Update Firebase Configuration
+## 5. Update Firebase Configuration
 
 Replace the placeholder configuration in `src/firebase/config.js` with your actual Firebase config:
 
@@ -42,19 +54,18 @@ const firebaseConfig = {
 };
 ```
 
-## 5. Test the Authentication
+## 6. Test the Authentication
 
 1. Start your development server: `npm start`
 2. Navigate to `/login` to test the login functionality
-3. Navigate to `/signup` to test the signup functionality
-4. Navigate to `/admin` to access the protected admin dashboard
+3. Navigate to `/admin` to access the protected admin dashboard
+4. Navigate to `/forgot-password` to test password reset
 
-## 6. Admin Functionality
+## 7. Admin Functionality
 
 ### Features Implemented:
 
-- ✅ Email/Password Authentication
-- ✅ User Registration
+- ✅ Email/Password Authentication (Login only)
 - ✅ User Login/Logout
 - ✅ Password Reset
 - ✅ Protected Admin Routes
@@ -63,18 +74,18 @@ const firebaseConfig = {
 
 ### Admin Routes:
 
-- `/login` - Login page
-- `/signup` - Registration page
+- `/login` - Login page (admin users only)
 - `/forgot-password` - Password reset page
 - `/admin` - Protected admin dashboard
 
 ### Security Features:
 
+- **No public signup** - Users must be created through Firebase Console
 - Private routes that redirect unauthenticated users
 - Firebase security rules (configure in Firebase Console)
 - Email verification (can be enabled in Firebase Console)
 
-## 7. Customization
+## 8. Customization
 
 ### Adding More Admin Features:
 
@@ -91,7 +102,7 @@ All components use Tailwind CSS classes that match your existing design system:
 - Secondary colors: `text-secondary`, `bg-secondary`
 - Gray colors: `text-gray-text`, `bg-gray-light`
 
-## 8. Environment Variables (Recommended)
+## 9. Environment Variables (Recommended)
 
 For production, store your Firebase config in environment variables:
 
@@ -119,7 +130,7 @@ const firebaseConfig = {
 };
 ```
 
-## 9. Next Steps
+## 10. Next Steps
 
 1. **Add more admin features**: User management, content editing, analytics
 2. **Implement role-based access**: Different admin levels
@@ -132,10 +143,10 @@ const firebaseConfig = {
 
 ### Common Issues:
 
-1. **"Firebase: Error (auth/user-not-found)"**: User doesn't exist
+1. **"Firebase: Error (auth/user-not-found)"**: User doesn't exist - create them in Firebase Console
 2. **"Firebase: Error (auth/wrong-password)"**: Incorrect password
-3. **"Firebase: Error (auth/email-already-in-use)"**: Email already registered
-4. **"Firebase: Error (auth/weak-password)"**: Password too weak
+3. **"Firebase: Error (auth/invalid-email)"**: Invalid email format
+4. **"Firebase: Error (auth/too-many-requests)"**: Too many login attempts
 
 ### Debug Tips:
 
@@ -143,3 +154,12 @@ const firebaseConfig = {
 - Verify Firebase configuration is correct
 - Ensure Authentication is enabled in Firebase Console
 - Check network connectivity
+- Verify admin users are created in Firebase Console
+
+### Security Best Practices:
+
+1. **Create admin users only through Firebase Console**
+2. **Use strong passwords for admin accounts**
+3. **Enable email verification for admin accounts**
+4. **Regularly review and update admin user list**
+5. **Monitor authentication logs in Firebase Console**

@@ -12,7 +12,6 @@ import Footer from "./components/Footer";
 
 // Auth Components
 import Login from "./components/auth/Login";
-import Signup from "./components/auth/Signup";
 import ForgotPassword from "./components/auth/ForgotPassword";
 import PrivateRoute from "./components/auth/PrivateRoute";
 
@@ -27,6 +26,15 @@ import Trainings from "./pages/Trainings";
 import Contact from "./pages/Contact";
 import Team from "./pages/Team";
 import Admin from "./pages/Admin";
+
+// Debug environment variables
+console.log("App.js - Environment check:", {
+  NODE_ENV: process.env.NODE_ENV,
+  hasFirebaseApiKey: !!process.env.REACT_APP_FIREBASE_API_KEY,
+  hasFirebaseAuthDomain: !!process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  hasFirebaseProjectId: !!process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  hasFirebaseAppId: !!process.env.REACT_APP_FIREBASE_APP_ID,
+});
 
 // Error Boundary Component
 class ErrorBoundary extends React.Component {
@@ -87,7 +95,6 @@ function App() {
 
                 {/* Auth Routes */}
                 <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<Signup />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
 
                 {/* Protected Admin Route */}
