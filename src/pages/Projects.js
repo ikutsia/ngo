@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { db } from "../firebase.config";
 import { collection, getDocs } from "firebase/firestore";
 
@@ -167,9 +168,11 @@ const Projects = () => {
                       </div>
                     )}
                   </div>
-                  <button className="w-full bg-primary text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 hover:bg-primary-dark">
-                    {t("projects.learnMore")}
-                  </button>
+                  <Link to={`/project/${project.id}`}>
+                    <button className="w-full bg-primary text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 hover:bg-primary-dark">
+                      {t("projects.learnMore")}
+                    </button>
+                  </Link>
                 </div>
               </div>
             ))}

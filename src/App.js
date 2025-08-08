@@ -19,12 +19,13 @@ import PrivateRoute from "./components/auth/PrivateRoute";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
-import Blog from "./pages/Blog";
+import ProjectDetail from "./pages/ProjectDetail";
+import Team from "./pages/Team";
+import Contact from "./pages/Contact";
 import News from "./pages/News";
+import Blog from "./pages/Blog";
 import Publications from "./pages/Publications";
 import Trainings from "./pages/Trainings";
-import Contact from "./pages/Contact";
-import Team from "./pages/Team";
 import Admin from "./pages/Admin";
 
 // Debug environment variables
@@ -83,15 +84,17 @@ function App() {
             <Header />
             <main className="main-content">
               <Routes>
+                {/* Main Routes */}
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/projects" element={<Projects />} />
-                <Route path="/blog" element={<Blog />} />
+                <Route path="/project/:projectId" element={<ProjectDetail />} />
+                <Route path="/team" element={<Team />} />
+                <Route path="/contact" element={<Contact />} />
                 <Route path="/news" element={<News />} />
+                <Route path="/blog" element={<Blog />} />
                 <Route path="/publications" element={<Publications />} />
                 <Route path="/trainings" element={<Trainings />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/team" element={<Team />} />
 
                 {/* Auth Routes */}
                 <Route path="/login" element={<Login />} />

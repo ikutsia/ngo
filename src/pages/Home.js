@@ -112,7 +112,7 @@ const Home = () => {
                     {project.description}
                   </p>
                   <Link
-                    to={`/projects/${project.id}`}
+                    to={`/project/${project.id}`}
                     className="text-primary font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all duration-300"
                   >
                     {t("home.learnMore")} <i className="fas fa-arrow-right"></i>
@@ -138,23 +138,33 @@ const Home = () => {
           <div className="text-center">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-4xl font-bold mb-8 font-serif">
-                {t('home.mission.title')}
+                {t("home.mission.title")}
               </h2>
               <p className="text-xl leading-relaxed opacity-90 mb-12">
-                {t('home.mission.description')}
+                {t("home.mission.description")}
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-12">
-                {t('home.mission.values', { returnObjects: true }).map((value, index) => (
-                  <div key={index} className="text-center p-8">
-                    <i className={`${['fas fa-lightbulb', 'fas fa-hands-helping', 'fas fa-star'][index]} text-5xl text-primary mb-5`}></i>
-                    <h4 className="text-xl font-bold text-primary mb-4">
-                      {value.title}
-                    </h4>
-                    <p className="text-gray-300 leading-relaxed">
-                      {value.description}
-                    </p>
-                  </div>
-                ))}
+                {t("home.mission.values", { returnObjects: true }).map(
+                  (value, index) => (
+                    <div key={index} className="text-center p-8">
+                      <i
+                        className={`${
+                          [
+                            "fas fa-lightbulb",
+                            "fas fa-hands-helping",
+                            "fas fa-star",
+                          ][index]
+                        } text-5xl text-primary mb-5`}
+                      ></i>
+                      <h4 className="text-xl font-bold text-primary mb-4">
+                        {value.title}
+                      </h4>
+                      <p className="text-gray-300 leading-relaxed">
+                        {value.description}
+                      </p>
+                    </div>
+                  )
+                )}
               </div>
             </div>
           </div>
@@ -166,17 +176,17 @@ const Home = () => {
         <div className="max-w-6xl mx-auto px-5">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold text-secondary mb-5 font-serif">
-              {t('home.cta.title')}
+              {t("home.cta.title")}
             </h2>
             <p className="text-xl text-gray-text mb-10">
-              {t('home.cta.description')}
+              {t("home.cta.description")}
             </p>
             <div className="flex flex-wrap gap-5 justify-center">
               <Link
                 to="/contact"
                 className="inline-block px-8 py-4 bg-primary text-white font-semibold rounded-lg transition-all duration-300 hover:bg-primary-dark transform hover:-translate-y-1"
               >
-                {t('home.cta.button')}
+                {t("home.cta.button")}
               </Link>
               <Link
                 to="/trainings"
