@@ -19,7 +19,24 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   function login(email, password) {
-    return signInWithEmailAndPassword(auth, email, password);
+    console.log("Login attempt with email:", email);
+    console.log("Firebase auth object:", auth);
+    console.log("Current domain:", window.location.hostname);
+
+    return signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        console.log("Login successful:", userCredential.user);
+        return userCredential;
+      })
+      .catch((error) => {
+        console.error("Login error details:", {
+          code: error.code,
+          message: error.message,
+          email: error.email,
+          credential: error.credential,
+        });
+        throw error;
+      });
   }
 
   function logout() {

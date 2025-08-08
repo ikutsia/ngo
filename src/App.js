@@ -35,6 +35,13 @@ console.log("App.js - Environment check:", {
   hasFirebaseAuthDomain: !!process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
   hasFirebaseProjectId: !!process.env.REACT_APP_FIREBASE_PROJECT_ID,
   hasFirebaseAppId: !!process.env.REACT_APP_FIREBASE_APP_ID,
+  // Show first few characters of API key for debugging
+  apiKeyPreview: process.env.REACT_APP_FIREBASE_API_KEY
+    ? process.env.REACT_APP_FIREBASE_API_KEY.substring(0, 10) + "..."
+    : "UNDEFINED",
+  // Add domain information
+  currentDomain: window.location.hostname,
+  currentUrl: window.location.href,
 });
 
 // Error Boundary Component
