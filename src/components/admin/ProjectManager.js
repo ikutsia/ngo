@@ -114,30 +114,6 @@ const ProjectManager = () => {
     }
   };
 
-  const uploadImage = async (file) => {
-    if (!file) return null;
-
-    const timestamp = Date.now();
-    const fileName = `projects/${timestamp}_${file.name}`;
-    // const storageRef = ref(storage, fileName); // Removed storage imports
-
-    try {
-      // const snapshot = await uploadBytes(storageRef, file); // Removed uploadBytes
-      // const downloadURL = await getDownloadURL(snapshot.ref); // Removed getDownloadURL
-      // return downloadURL; // Removed return
-      // For free Firebase plan, we'll just return the URL directly or null
-      // In a real app, you'd upload to Firebase Storage and get a URL
-      // For now, we'll just return the URL if it's a valid image URL
-      if (file.type.startsWith("image/")) {
-        return URL.createObjectURL(file); // Simulate upload for preview
-      }
-      return null;
-    } catch (error) {
-      console.error("Error uploading image:", error);
-      throw new Error("Failed to upload image");
-    }
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

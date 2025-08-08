@@ -7,7 +7,6 @@ const Projects = () => {
   const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState("all");
   const [firestoreProjects, setFirestoreProjects] = useState([]);
-  const [loadingFirestore, setLoadingFirestore] = useState(false);
 
   const categories = [
     { id: "all", name: t("projects.categories.all") },
@@ -52,7 +51,6 @@ const Projects = () => {
 
   const loadFirestoreProjects = async () => {
     try {
-      setLoadingFirestore(true);
       const querySnapshot = await getDocs(collection(db, "projects"));
       const projectsList = querySnapshot.docs.map((doc) => ({
         id: `firestore-${doc.id}`,
@@ -62,8 +60,6 @@ const Projects = () => {
     } catch (error) {
       console.error("Error loading Firestore projects:", error);
       // Don't set fallback - just keep static projects
-    } finally {
-      setLoadingFirestore(false);
     }
   };
 
