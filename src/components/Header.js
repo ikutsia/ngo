@@ -208,6 +208,11 @@ const Header = () => {
           <LanguageSwitcher />
         </div>
 
+        {/* Mobile Language Switcher */}
+        <div className="md:hidden">
+          <LanguageSwitcher />
+        </div>
+
         {/* Mobile Hamburger Menu Button */}
         <button
           className="md:hidden flex flex-col justify-center items-center w-8 h-8 p-1 rounded-md hover:bg-gray-100 transition-colors duration-200"
@@ -385,11 +390,6 @@ const Header = () => {
                 </Link>
               </li>
             </ul>
-
-            {/* Mobile Language Switcher */}
-            <div className="px-6 py-4 border-t border-gray-100">
-              <LanguageSwitcher />
-            </div>
           </nav>
         </div>
       </div>
